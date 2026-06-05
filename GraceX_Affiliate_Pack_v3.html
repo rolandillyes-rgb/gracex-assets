@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GraceX Affiliate Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate:       #4D596A;
+    --slate-dark:  #2E4057;
+    --steel:       #7E8FA6;
+    --steel-light: #547B93;
+    --sky:         #B4C9E6;
+    --sky-light:   #D4E6F1;
+    --sand:        #A29B6E;
+    --sand-light:  #D4B896;
+    --ivory:       #EEEAE5;
+    --ivory-light: #FBF8F0;
+    --white:       #FFFFFF;
+    --text-dark:   #2E4057;
+    --text-mid:    #4D596A;
+    --text-muted:  #7E8FA6;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+    --section-pad:  80px 0;
+    --container:    880px;
+    --radius:       4px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    font-size: 15px; line-height: 1.65;
+    color: var(--text-dark); background: var(--ivory-light);
+  }
+
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 36px; }
+
+  .label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--sand);
+  }
+  .section-divider { width: 40px; height: 2px; background: var(--sand); margin: 0 0 10px; }
+  .section-header { margin-bottom: 40px; }
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.5vw, 38px); font-weight: 600;
+    color: var(--text-dark); line-height: 1.2; margin-top: 8px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--slate-dark);
+    border-bottom: 1px solid rgba(180,201,230,0.12);
+  }
+  nav .inner {
+    max-width: var(--container); margin: 0 auto; padding: 0 36px;
+    height: 52px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: var(--font-display); font-size: 19px; font-weight: 600;
+    color: var(--ivory); letter-spacing: 0.08em; text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--sky);
+    text-decoration: none; opacity: 0.75; transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+
+  /* HERO */
+  .hero {
+    background: var(--slate-dark);
+    padding: 96px 0 80px; position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 38%;
+    background: linear-gradient(135deg, rgba(180,201,230,0.04) 0%, rgba(162,155,110,0.07) 100%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    display: inline-block; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--sand-light);
+    margin-bottom: 24px; padding: 5px 14px;
+    border: 1px solid rgba(162,155,110,0.3); border-radius: 2px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 5vw, 58px); font-weight: 600;
+    line-height: 1.12; color: var(--ivory); margin-bottom: 28px; max-width: 620px;
+  }
+  .hero h1 em { font-style: italic; color: var(--sky); }
+  .hero-rule { width: 48px; height: 2px; background: var(--sand); margin: 0 0 28px; }
+  .hero p {
+    font-size: 17px; line-height: 1.72;
+    color: var(--sky-light); max-width: 540px; font-weight: 300;
+  }
+  .hero-badge { margin-top: 44px; }
+  .hero-badge svg { height: 58px; width: auto; }
+
+  /* SECTION BACKGROUNDS */
+  .bg-white  { background: var(--white); }
+  .bg-ivory  { background: var(--ivory-light); }
+  .bg-slate  { background: var(--slate-dark); }
+  section { padding: var(--section-pad); }
+
+  /* PRODUCT INTRO */
+  .product-intro {
+    background: var(--slate-dark); color: var(--sky-light);
+    padding: 36px 40px; border-radius: var(--radius); margin-bottom: 28px;
+  }
+  .product-intro p { font-size: 15px; line-height: 1.78; font-weight: 300; }
+  .product-intro p + p { margin-top: 14px; }
+
+  /* ACCORDION */
+  .accordion { border: 1px solid var(--sky); border-radius: var(--radius); overflow: hidden; margin-bottom: 28px; }
+  .accordion-item { border-bottom: 1px solid var(--sky); }
+  .accordion-item:last-child { border-bottom: none; }
+  .accordion-trigger {
+    width: 100%; background: var(--white); border: none; cursor: pointer;
+    padding: 18px 22px; display: flex; align-items: center;
+    justify-content: space-between; gap: 16px; text-align: left;
+    transition: background 0.2s;
+  }
+  .accordion-trigger:hover { background: var(--ivory-light); }
+  .accordion-trigger.open { background: var(--slate-dark); }
+  .accordion-trigger-left { display: flex; align-items: center; gap: 14px; }
+  .accordion-num {
+    font-family: var(--font-display); font-size: 20px; font-weight: 600;
+    color: var(--sky); line-height: 1; flex-shrink: 0; width: 24px;
+  }
+  .accordion-trigger.open .accordion-num { color: var(--sand-light); }
+  .accordion-title {
+    font-size: 14px; font-weight: 500; color: var(--slate-dark);
+  }
+  .accordion-trigger.open .accordion-title { color: var(--ivory); }
+  .accordion-preview {
+    font-size: 12px; color: var(--text-muted); margin-top: 2px;
+  }
+  .accordion-trigger.open .accordion-preview { color: var(--steel); }
+  .accordion-icon {
+    width: 20px; height: 20px; flex-shrink: 0;
+    border-radius: 50%; border: 1.5px solid var(--sky);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.25s, background 0.2s;
+  }
+  .accordion-trigger.open .accordion-icon {
+    background: var(--sand); border-color: var(--sand); transform: rotate(45deg);
+  }
+  .accordion-icon::before, .accordion-icon::after {
+    content: ''; position: absolute;
+    background: var(--steel-light); border-radius: 1px;
+  }
+  .accordion-icon { position: relative; }
+  .accordion-icon::before { width: 10px; height: 1.5px; }
+  .accordion-icon::after { width: 1.5px; height: 10px; }
+  .accordion-trigger.open .accordion-icon::before,
+  .accordion-trigger.open .accordion-icon::after { background: var(--white); }
+  .accordion-body {
+    display: none; padding: 24px 22px 24px 60px;
+    background: var(--ivory-light); border-top: 1px solid var(--sky);
+  }
+  .accordion-body.open { display: block; }
+  .accordion-body p { font-size: 13.5px; color: var(--text-mid); line-height: 1.7; }
+  .accordion-body p + p { margin-top: 10px; }
+
+  /* INTRO LANGUAGE ACCORDION BODY */
+  .intro-body {
+    font-size: 15px; line-height: 1.8; color: var(--text-mid);
+    font-style: italic; border-left: 3px solid var(--sky-light);
+    padding-left: 18px; margin-bottom: 12px;
+  }
+  .intro-hint { font-size: 12px; color: var(--text-muted); padding-left: 21px; }
+
+  /* EXAMPLE ACCORDION BODY */
+  .example-acc-body { }
+  .example-line {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid var(--ivory); font-size: 13px;
+  }
+  .example-line:last-of-type { border-bottom: none; }
+  .example-line .ev { color: var(--text-muted); }
+  .example-line .amt { font-weight: 500; color: var(--steel-light); }
+  .example-total {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 14px; padding-top: 12px; border-top: 2px solid var(--slate);
+  }
+  .tot-label { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-mid); }
+  .tot-amt { font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--slate-dark); }
+
+  /* WHAT SETS GRACEX APART */
+  .unique-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  }
+  .unique-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: var(--white); border: 1px solid var(--sky);
+    padding: 20px 22px; border-radius: var(--radius);
+  }
+  .unique-num {
+    font-family: var(--font-display); font-size: 28px; font-weight: 600;
+    color: var(--sky); line-height: 1; flex-shrink: 0; padding-top: 2px;
+  }
+  .unique-item h4 { font-size: 13px; font-weight: 500; color: var(--slate-dark); margin-bottom: 4px; }
+  .unique-item p { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+
+  /* NOT-LIST REDESIGN: two-column with cross + explanation */
+  .not-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 32px;
+  }
+  .not-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--white); border: 1px solid var(--ivory);
+    border-left: 3px solid var(--slate); padding: 16px 18px; border-radius: var(--radius);
+  }
+  .not-cross {
+    width: 20px; height: 20px; flex-shrink: 0;
+    border-radius: 50%; background: var(--slate-dark);
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1px;
+  }
+  .not-cross::before, .not-cross::after {
+    content: ''; position: absolute;
+    width: 8px; height: 1.5px; background: var(--ivory); border-radius: 1px;
+  }
+  .not-cross { position: relative; }
+  .not-cross::before { transform: rotate(45deg); }
+  .not-cross::after  { transform: rotate(-45deg); }
+  .not-item-text h5 { font-size: 13px; font-weight: 500; color: var(--slate-dark); margin-bottom: 3px; }
+  .not-item-text p  { font-size: 12px; color: var(--text-muted); line-height: 1.55; }
+
+  /* COMPENSATION TABLE */
+  .events-table {
+    width: 100%; border-collapse: collapse; margin-bottom: 32px;
+    background: var(--white); border-radius: var(--radius);
+    overflow: hidden; box-shadow: 0 1px 4px rgba(46,64,87,0.08);
+  }
+  .events-table thead tr { background: var(--slate-dark); }
+  .events-table thead th {
+    padding: 14px 18px; font-size: 10.5px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; text-align: left; color: var(--sky-light);
+  }
+  .events-table tbody tr { border-bottom: 1px solid var(--ivory); }
+  .events-table tbody tr:last-child { border-bottom: none; }
+  .events-table tbody tr:hover { background: var(--ivory-light); }
+  .events-table td { padding: 14px 18px; font-size: 13.5px; color: var(--text-mid); vertical-align: top; }
+  .events-table td:first-child { font-weight: 500; color: var(--slate-dark); white-space: nowrap; }
+  .events-table td.amount {
+    font-family: var(--font-display); font-size: 18px;
+    font-weight: 600; color: var(--steel-light); white-space: nowrap;
+  }
+  .event-tag {
+    display: inline-block; font-size: 9px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 2px; margin-bottom: 4px;
+  }
+  .tag-1 { background: var(--sky-light); color: var(--steel-light); }
+  .tag-2 { background: var(--sand-light); color: #6b5d3f; }
+  .tag-3 { background: var(--ivory); color: var(--sand); border: 1px solid var(--sand-light); }
+
+  /* CALCULATOR */
+  .calculator {
+    background: var(--slate-dark); border-radius: var(--radius);
+    padding: 36px 40px; margin-top: 40px;
+  }
+  .calc-title {
+    font-family: var(--font-display); font-size: 26px; font-weight: 600;
+    color: var(--ivory); margin-bottom: 4px;
+  }
+  .calc-sub { font-size: 13px; color: var(--steel); font-weight: 300; margin-bottom: 28px; }
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+  .calc-field label {
+    display: block; font-size: 10.5px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--sky); margin-bottom: 8px;
+  }
+  .calc-field select, .calc-field input[type="range"] { width: 100%; }
+  .calc-field select {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(180,201,230,0.22);
+    color: var(--ivory); padding: 10px 14px; font-size: 14px;
+    font-family: var(--font-body); border-radius: var(--radius);
+    appearance: none; cursor: pointer; outline: none;
+  }
+  .calc-field select:focus { border-color: rgba(180,201,230,0.45); }
+  .calc-field select option { background: #2E4057; color: var(--ivory); }
+  .calc-field input[type="range"] {
+    -webkit-appearance: none; height: 4px;
+    background: rgba(180,201,230,0.18); border-radius: 2px; outline: none;
+    cursor: pointer; margin-top: 8px;
+  }
+  .calc-field input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%;
+    background: var(--sand-light); cursor: pointer; border: 2px solid var(--slate-dark);
+  }
+  .range-display {
+    text-align: right; margin-top: 6px;
+    font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--sky-light);
+  }
+  .range-display span { font-size: 13px; font-weight: 300; color: var(--steel); margin-left: 4px; }
+  .calc-result {
+    background: rgba(180,201,230,0.06); border: 1px solid rgba(180,201,230,0.18);
+    border-radius: var(--radius); padding: 24px 28px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;
+  }
+  .calc-result-item { text-align: center; }
+  .res-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--steel); margin-bottom: 8px;
+  }
+  .res-val { font-family: var(--font-display); font-size: 30px; font-weight: 600; color: var(--ivory); }
+  .res-sub { font-size: 11px; color: var(--steel); margin-top: 4px; font-weight: 300; }
+  .calc-note { font-size: 11px; color: var(--steel); margin-top: 16px; text-align: center; font-style: italic; }
+
+  /* PAYMENT */
+  .payment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .payment-card {
+    padding: 26px 28px; border-radius: var(--radius);
+    border: 1px solid var(--sky); background: var(--white);
+  }
+  .payment-card h3 {
+    font-family: var(--font-display); font-size: 21px; font-weight: 600;
+    color: var(--slate-dark); margin-bottom: 5px;
+  }
+  .path-tag {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--sand); margin-bottom: 14px; display: block;
+  }
+  .payment-card p { font-size: 13.5px; line-height: 1.72; color: var(--text-mid); }
+  .payment-meta { margin-top: 28px; display: flex; gap: 16px; }
+  .payment-meta-item {
+    flex: 1; background: var(--ivory); padding: 20px 18px;
+    border-radius: var(--radius); text-align: center;
+  }
+  .pm-val { font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--slate-dark); }
+  .pm-label { font-size: 13px; color: var(--text-mid); margin-top: 5px; line-height: 1.4; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding: 8px 0 0; }
+  .timeline-track {
+    position: absolute; top: 27px; left: 28px; right: 28px;
+    height: 2px; background: var(--sky); z-index: 0;
+  }
+  .timeline-steps {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 12px; position: relative; z-index: 1;
+  }
+  .timeline-step { text-align: center; }
+  .step-dot {
+    width: 54px; height: 54px; border-radius: 50%;
+    margin: 0 auto 14px; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 16px; font-weight: 600;
+  }
+  .step-dot.reg { background: var(--slate-dark); color: var(--ivory); border: 2px solid var(--slate); }
+  .step-dot.ra  { background: var(--white); color: var(--steel-light); border: 2px solid var(--sky); }
+  .step-dot.lic { background: var(--white); color: var(--steel-light); border: 2px solid var(--sky); }
+  .step-dot.ren { background: var(--white); color: var(--steel-light); border: 2px solid var(--sky); }
+  .step-dot.win { background: var(--sand); color: var(--white); border: 2px solid var(--sand); }
+  .step-label { font-size: 12px; font-weight: 500; color: var(--slate-dark); margin-bottom: 4px; }
+  .step-desc { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+  .step-earn {
+    display: inline-block; margin-top: 7px; font-size: 11px; font-weight: 500;
+    color: var(--steel-light); background: var(--sky-light);
+    padding: 4px 10px; border-radius: 2px;
+    min-width: 90px; text-align: center;
+  }
+  .timeline-note {
+    margin-top: 28px; text-align: center;
+    font-size: 13px; color: var(--text-muted); font-style: italic;
+  }
+
+  /* REGISTRATION */
+  .register-inner { text-align: center; }
+  .register-inner .label { color: var(--sand-light); margin-bottom: 12px; }
+  .register-inner h2 {
+    font-family: var(--font-display); font-size: 34px; font-weight: 600;
+    color: var(--ivory); margin-bottom: 14px;
+  }
+  .register-inner > p {
+    font-size: 16px; color: var(--sky-light);
+    max-width: 500px; margin: 0 auto 28px; font-weight: 300; line-height: 1.7;
+  }
+  .btn-primary {
+    display: inline-block; background: var(--sand); color: var(--white);
+    padding: 14px 38px; border-radius: var(--radius);
+    font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--sand-light); transform: translateY(-1px); }
+  .register-steps {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    max-width: 640px; margin: 36px auto 0; text-align: left;
+  }
+  .register-step {
+    padding: 18px; background: rgba(255,255,255,0.05);
+    border-radius: var(--radius); border: 1px solid rgba(180,201,230,0.1);
+  }
+  .rs-num {
+    font-family: var(--font-display); font-size: 26px;
+    color: var(--sky); font-weight: 600; margin-bottom: 6px;
+  }
+  .register-step p { font-size: 12px; color: var(--steel); line-height: 1.6; margin: 0; }
+  .window-note { margin-top: 22px; font-size: 12px; color: var(--steel); font-style: italic; }
+
+  /* TIERS */
+  .tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .tier-card { border-radius: var(--radius); overflow: hidden; }
+  .tier-header { padding: 22px 24px 18px; }
+  .tier-card.referral .tier-header { background: var(--slate); }
+  .tier-card.preferred .tier-header { background: var(--sand); }
+  .tier-name {
+    font-family: var(--font-display); font-size: 23px;
+    font-weight: 600; color: var(--ivory); margin-bottom: 2px;
+  }
+  .tier-sub {
+    font-size: 10.5px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .tier-card.referral .tier-sub { color: var(--sky-light); }
+  .tier-card.preferred .tier-sub { color: rgba(255,255,255,0.7); }
+  .tier-body {
+    background: var(--white); border: 1px solid var(--sky);
+    border-top: none; padding: 22px 24px;
+  }
+  .tier-card.preferred .tier-body { border-color: var(--sand-light); }
+  .tier-body ul { list-style: none; }
+  .tier-body ul li {
+    font-size: 13.5px; color: var(--text-mid);
+    padding: 8px 0; border-bottom: 1px solid var(--ivory);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .tier-body ul li:last-child { border-bottom: none; }
+  .tier-body ul li::before { content: '\2713'; color: var(--steel-light); font-weight: 600; flex-shrink: 0; }
+  .tier-card.preferred .tier-body ul li::before { color: var(--sand); }
+  .tier-note { margin-top: 14px; font-size: 12px; color: var(--text-muted); font-style: italic; }
+
+  /* BADGE SECTION */
+  .badge-section {
+    background: var(--ivory); border-radius: var(--radius);
+    padding: 28px 32px; margin-top: 28px; border: 1px solid var(--sand-light);
+  }
+  .badge-section-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--sand); margin-bottom: 18px;
+  }
+  .badge-variants { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; margin-bottom: 18px; }
+  .badge-item { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .badge-item svg { height: 60px; width: auto; }
+  .badge-dl {
+    display: inline-block; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--steel-light); text-decoration: none;
+    border-bottom: 1px solid var(--sky); padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .badge-dl:hover { color: var(--slate-dark); border-color: var(--slate-dark); }
+  .badge-section p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* FOOTER */
+  footer { background: var(--slate-dark); padding: 52px 0 40px; }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+  .foot-logo {
+    font-family: var(--font-display); font-size: 21px; font-weight: 600;
+    color: var(--ivory); letter-spacing: 0.06em; margin-bottom: 8px;
+  }
+  .foot-abn { font-size: 12px; color: var(--steel); margin-bottom: 14px; }
+  footer p { font-size: 12.5px; color: var(--steel); line-height: 1.7; }
+  footer h4 {
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--sky); margin-bottom: 14px;
+  }
+  footer a {
+    display: block; font-size: 13px; color: var(--steel);
+    text-decoration: none; margin-bottom: 9px; transition: color 0.2s;
+  }
+  footer a:hover { color: var(--sky-light); }
+  .foot-btn {
+    display: inline-block; margin-top: 6px;
+    background: rgba(180,201,230,0.1); border: 1px solid rgba(180,201,230,0.25);
+    color: var(--sky-light); padding: 10px 20px; border-radius: var(--radius);
+    font-size: 12px; text-decoration: none; transition: background 0.2s;
+  }
+  .foot-btn:hover { background: rgba(180,201,230,0.18); color: var(--ivory); }
+  .privacy-note {
+    margin-top: 14px; font-size: 11.5px; color: var(--steel); line-height: 1.65; font-style: italic;
+  }
+  .privacy-note a { display: inline; font-size: 11.5px; color: var(--sky); }
+  .footer-base {
+    border-top: 1px solid rgba(180,201,230,0.1); margin-top: 40px; padding-top: 20px;
+    font-size: 11px; color: var(--steel);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .unique-grid, .not-grid, .payment-grid, .tier-grid,
+    .register-steps, .footer-grid, .calc-grid { grid-template-columns: 1fr; }
+    .timeline-steps { grid-template-columns: 1fr 1fr; }
+    .timeline-track { display: none; }
+    .calc-result { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .payment-meta { flex-direction: column; }
+    .badge-variants { flex-direction: column; }
+    .accordion-body { padding-left: 22px; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero .hero-eyebrow { animation: fadeUp 0.45s ease 0.05s both; }
+  .hero h1            { animation: fadeUp 0.45s ease 0.12s both; }
+  .hero .hero-rule    { animation: fadeUp 0.45s ease 0.18s both; }
+  .hero p             { animation: fadeUp 0.45s ease 0.22s both; }
+  .hero .hero-badge   { animation: fadeUp 0.45s ease 0.30s both; }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .accordion-body.open { animation: slideDown 0.2s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="inner">
+    <a class="nav-logo" href="#">GraceX</a>
+    <ul class="nav-links">
+      <li><a href="#platform">The Platform</a></li>
+      <li><a href="#your-role">Your Role</a></li>
+      <li><a href="#compensation">What You Earn</a></li>
+      <li><a href="#how-to-refer">Make a Referral</a></li>
+      <li><a href="#tiers">Partner Tiers</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">GraceX Affiliate Program</div>
+    <h1>Introduce us once.<br><em>Earn across the relationship.</em></h1>
+    <div class="hero-rule"></div>
+    <p>You are here because someone at GraceX thinks you know business owners who carry personal liability for psychosocial risk at work. This page explains how the program works, what you earn, and what you are and are not expected to do.</p>
+    <div class="hero-badge">
+      <svg height="58" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GraceX Referral Partner badge">
+        <rect x="0" y="0" width="400" height="100" rx="6" fill="#4D596A"/>
+        <rect x="0" y="0" width="6" height="100" rx="3" fill="#A29B6E"/>
+        <text x="22" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#EEEAE5" letter-spacing="3">GRACEX</text>
+        <line x1="22" y1="56" x2="280" y2="56" stroke="#B4C9E6" stroke-width="0.75"/>
+        <text x="22" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#B4C9E6" letter-spacing="2.5">REFERRAL PARTNER</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- THE PLATFORM -->
+<section id="platform" class="bg-ivory">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="label">The Platform</div>
+      <h2>What GraceX is</h2>
+    </div>
+
+    <div class="product-intro">
+      <p>GraceX is a psychosocial risk management platform built entirely inside Microsoft 365. It gives business leaders a structured, documented approach to their WHS obligations under Australian psychosocial hazard legislation and the 2024 Code of Practice, without adding new software, new logins, or new systems.</p>
+      <p>It operates through Teams, SharePoint, and Forms that businesses already pay for. A human expert reviews anonymous survey results each month and provides a written report with specific leadership actions. Leaders see trends over time in Power BI. All data stays inside the customer's own Microsoft 365 tenant at all times.</p>
+    </div>
+
+    <!-- PILLARS ACCORDION -->
+    <div class="label" style="margin-bottom:10px;">Three pillars</div>
+    <div class="accordion" id="pillars-acc">
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="pillar-1" onclick="toggleAccordion(this,'pillars-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">01</span>
+            <div>
+              <div class="accordion-title">Tuesday Check-In</div>
+              <div class="accordion-preview">Weekly structured content delivered to Teams</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="pillar-1">
+          <p>Weekly structured content posted to a dedicated Teams channel. Evidence-based, practical material covering psychosocial risk topics is delivered to the whole team every week without any manual effort from the leader. Content is written by the GraceX expert team and calibrated to the Australian WHS context.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="pillar-2" onclick="toggleAccordion(this,'pillars-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">02</span>
+            <div>
+              <div class="accordion-title">Thursday Insights</div>
+              <div class="accordion-preview">Fortnightly anonymous survey cycle reviewed by a human expert</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="pillar-2">
+          <p>Fortnightly anonymous survey cycle delivered via Microsoft Forms. Staff complete short surveys in the tools they already use. De-identified results are reviewed monthly by a human expert who produces a written report with specific, actionable recommendations for leadership.</p>
+          <p>Leaders see aggregated trends over time in a Power BI dashboard. No personal data leaves the customer's tenant. No algorithmic scoring. A qualified professional reads the data and writes the report.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="pillar-3" onclick="toggleAccordion(this,'pillars-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">03</span>
+            <div>
+              <div class="accordion-title">Well-Being Credits</div>
+              <div class="accordion-preview">SharePoint-based engagement layer funded by the employer</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="pillar-3">
+          <p>A SharePoint-based engagement and recognition layer. Staff earn credits for participating in surveys and Check-In content. Credits are redeemable against employer-funded rewards. Leaders see participation rates alongside survey sentiment, giving visibility of engagement as well as content.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT SETS GRACEX APART -->
+    <div class="section-header" style="margin-top:48px; margin-bottom:24px;">
+      <div class="section-divider"></div>
+      <div class="label">Differentiators</div>
+      <h2>What sets GraceX apart</h2>
+    </div>
+    <div class="unique-grid" style="margin-bottom:28px;">
+      <div class="unique-item">
+        <div class="unique-num">01</div>
+        <div>
+          <h4>Data never leaves the customer's tenant</h4>
+          <p>All data is stored inside the customer's own Microsoft 365 environment. GraceX holds nothing. Only de-identified survey summaries reach the expert for review.</p>
+        </div>
+      </div>
+      <div class="unique-item">
+        <div class="unique-num">02</div>
+        <div>
+          <h4>No new software, no IT project</h4>
+          <p>GraceX runs entirely on Teams, SharePoint, and Forms the business already pays for. Nothing to install, no additional licence to buy, no change management required.</p>
+        </div>
+      </div>
+      <div class="unique-item">
+        <div class="unique-num">03</div>
+        <div>
+          <h4>Human expert, not an algorithm</h4>
+          <p>Survey results are reviewed by a human expert every month. The written report and leadership actions come from professional judgement, not automated scoring or pattern detection.</p>
+        </div>
+      </div>
+      <div class="unique-item">
+        <div class="unique-num">04</div>
+        <div>
+          <h4>Structured to the 2024 WHS Code of Practice</h4>
+          <p>GraceX is designed around the Australian Code of Practice for Managing Psychosocial Hazards at Work. It gives PCBUs a defensible, documented compliance posture, not just a survey tool.</p>
+        </div>
+      </div>
+      <div class="unique-item">
+        <div class="unique-num">05</div>
+        <div>
+          <h4>Continuous and documented</h4>
+          <p>Unlike one-off assessments or annual surveys, GraceX operates fortnightly. The result is an ongoing evidence trail of consultation, action, and review that a PCBU can demonstrate to a regulator.</p>
+        </div>
+      </div>
+      <div class="unique-item">
+        <div class="unique-num">06</div>
+        <div>
+          <h4>Built for the business owner, not the HR specialist</h4>
+          <p>Designed for a CEO or MD carrying personal WHS liability. Plain language, specific actions, Power BI visibility. No specialist knowledge required to operate it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOT LIST REDESIGN -->
+    <div class="label" style="margin-bottom:14px;">Important distinctions</div>
+    <div class="not-grid">
+      <div class="not-item">
+        <div class="not-cross"></div>
+        <div class="not-item-text">
+          <h5>Not an AI tool or chatbot</h5>
+          <p>GraceX does not use artificial intelligence, machine learning, or automated decision-making. All analysis and recommendations come from a human expert.</p>
+        </div>
+      </div>
+      <div class="not-item">
+        <div class="not-cross"></div>
+        <div class="not-item-text">
+          <h5>Not an EAP or counselling service</h5>
+          <p>GraceX is a risk management and compliance platform. It does not provide individual counselling, crisis support, or clinical services of any kind.</p>
+        </div>
+      </div>
+      <div class="not-item">
+        <div class="not-cross"></div>
+        <div class="not-item-text">
+          <h5>Not an algorithmic monitoring system</h5>
+          <p>GraceX does not score, rank, or flag individual employees. Survey responses are de-identified. The platform monitors organisational patterns, not individuals.</p>
+        </div>
+      </div>
+      <div class="not-item">
+        <div class="not-cross"></div>
+        <div class="not-item-text">
+          <h5>Not a consulting engagement</h5>
+          <p>GraceX is a subscription platform, not a project or consulting arrangement. There are no variable day rates, no scope creep, and no dependency on consultant availability.</p>
+        </div>
+      </div>
+      <div class="not-item">
+        <div class="not-cross"></div>
+        <div class="not-item-text">
+          <h5>Not new software to install</h5>
+          <p>GraceX requires no new applications, no app store downloads, and no IT department involvement. It is deployed entirely within the customer's existing Microsoft 365 environment.</p>
+        </div>
+      </div>
+      <div class="not-item">
+        <div class="not-cross"></div>
+        <div class="not-item-text">
+          <h5>Not a replacement for EAP</h5>
+          <p>GraceX and EAP serve different purposes. EAP is a reactive support service. GraceX is a proactive risk management and compliance system. They are complementary, not substitutes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTRO LANGUAGE ACCORDION -->
+    <div class="label" style="margin-bottom:10px; margin-top:32px;">Introduction resources</div>
+    <div class="accordion" id="intro-acc">
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="intro-lang" onclick="toggleAccordion(this,'intro-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num" style="font-size:14px; width:auto; color: var(--sky);">&#9656;</span>
+            <div>
+              <div class="accordion-title">Suggested introduction language</div>
+              <div class="accordion-preview">Verbatim language to use when introducing GraceX to a prospect</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="intro-lang">
+          <p class="intro-body">I wanted to introduce you to GraceX, a psychosocial risk management platform built inside Microsoft 365. It is designed for business owners and leaders who carry personal WHS liability and need a structured, documented approach to psychosocial hazard management. It is not an AI tool or a counselling service. It runs through Teams, Forms, and SharePoint your business already uses, with a human expert reviewing results each month and producing a written report with specific actions. Happy to connect you with the GraceX team if that sounds relevant.</p>
+          <p class="intro-hint">Use verbatim or adapt to your voice. Do not discuss pricing, scope, or product capabilities beyond this.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- YOUR ROLE -->
+<section id="your-role" class="bg-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="label">Roles</div>
+      <h2>What you do, and what GraceX does</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+      <div style="background:var(--slate-dark); padding:28px; border-radius:var(--radius);">
+        <h3 style="font-family:var(--font-display); font-size:21px; font-weight:600; color:var(--sky-light); margin-bottom:18px;">Your role</h3>
+        <ul style="list-style:none;">
+          <li style="font-size:13.5px; color:var(--sky-light); padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.07); display:flex; gap:10px;"><span style="color:var(--sand-light); flex-shrink:0;">&#8594;</span>Identify a business owner or leader who may have a psychosocial WHS obligation</li>
+          <li style="font-size:13.5px; color:var(--sky-light); padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.07); display:flex; gap:10px;"><span style="color:var(--sand-light); flex-shrink:0;">&#8594;</span>Make a direct introduction to GraceX by email, phone, or in person</li>
+          <li style="font-size:13.5px; color:var(--sky-light); padding:8px 0; display:flex; gap:10px;"><span style="color:var(--sand-light); flex-shrink:0;">&#8594;</span>Register the referral via the online form within 48 hours of the introduction</li>
+        </ul>
+      </div>
+      <div style="background:var(--white); padding:28px; border-radius:var(--radius); border:1px solid var(--sky);">
+        <h3 style="font-family:var(--font-display); font-size:21px; font-weight:600; color:var(--slate-dark); margin-bottom:18px;">GraceX's role</h3>
+        <ul style="list-style:none;">
+          <li style="font-size:13.5px; color:var(--text-mid); padding:8px 0; border-bottom:1px solid rgba(0,0,0,0.05); display:flex; gap:10px;"><span style="color:var(--steel-light); flex-shrink:0;">&#8594;</span>Conduct all sales conversations and discovery</li>
+          <li style="font-size:13.5px; color:var(--text-mid); padding:8px 0; border-bottom:1px solid rgba(0,0,0,0.05); display:flex; gap:10px;"><span style="color:var(--steel-light); flex-shrink:0;">&#8594;</span>Present pricing and scope to the prospect</li>
+          <li style="font-size:13.5px; color:var(--text-mid); padding:8px 0; border-bottom:1px solid rgba(0,0,0,0.05); display:flex; gap:10px;"><span style="color:var(--steel-light); flex-shrink:0;">&#8594;</span>Deliver the Readiness Assessment and onboarding</li>
+          <li style="font-size:13.5px; color:var(--text-mid); padding:8px 0; border-bottom:1px solid rgba(0,0,0,0.05); display:flex; gap:10px;"><span style="color:var(--steel-light); flex-shrink:0;">&#8594;</span>Operate the platform and provide expert review throughout the subscription</li>
+          <li style="font-size:13.5px; color:var(--text-mid); padding:8px 0; display:flex; gap:10px;"><span style="color:var(--steel-light); flex-shrink:0;">&#8594;</span>Notify you when a payment event is triggered and process payment within 14 business days</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPENSATION -->
+<section id="compensation" class="bg-ivory">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="label">Compensation</div>
+      <h2>What you earn</h2>
+    </div>
+
+    <table class="events-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Trigger</th>
+          <th>Payment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="event-tag tag-1">Event 1</span><br>Readiness Assessment</td>
+          <td>Customer purchases the GraceX Readiness Assessment</td>
+          <td class="amount">10% of RA fee</td>
+        </tr>
+        <tr>
+          <td><span class="event-tag tag-2">Event 2</span><br>Licence Sale</td>
+          <td>Customer signs a Subscription Agreement with a contract value below $30,000</td>
+          <td class="amount">$1,500</td>
+        </tr>
+        <tr>
+          <td><span class="event-tag tag-2">Event 2</span><br>Licence Sale (high value)</td>
+          <td>Customer signs a Subscription Agreement with a contract value of $30,000 or above</td>
+          <td class="amount">$3,000</td>
+        </tr>
+        <tr>
+          <td><span class="event-tag tag-3">Event 3</span><br>First Renewal</td>
+          <td>Customer executes their first renewal with a contract value below $30,000</td>
+          <td class="amount">$1,500</td>
+        </tr>
+        <tr>
+          <td><span class="event-tag tag-3">Event 3</span><br>First Renewal (high value)</td>
+          <td>Customer executes their first renewal with a contract value of $30,000 or above</td>
+          <td class="amount">$3,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- WORKED EXAMPLES ACCORDION -->
+    <div class="label" style="margin-bottom:10px;">Worked examples - indicative, ex GST, 50-person business</div>
+    <div class="accordion" id="examples-acc">
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="ex-a" onclick="toggleAccordion(this,'examples-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">A</span>
+            <div>
+              <div class="accordion-title">RA only</div>
+              <div class="accordion-preview">Customer purchases the Readiness Assessment - no licence yet</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--steel-light);">$650</span>
+            <div class="accordion-icon"></div>
+          </div>
+        </button>
+        <div class="accordion-body" id="ex-a">
+          <div class="example-acc-body">
+            <div class="example-line"><span class="ev">Event 1 - RA ($6,500 fee)</span><span class="amt">$650</span></div>
+            <div class="example-total"><span class="tot-label">Total earned</span><span class="tot-amt">$650</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="ex-b" onclick="toggleAccordion(this,'examples-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">B</span>
+            <div>
+              <div class="accordion-title">RA + Licence</div>
+              <div class="accordion-preview">Customer completes RA then signs a subscription agreement</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--steel-light);">$2,150</span>
+            <div class="accordion-icon"></div>
+          </div>
+        </button>
+        <div class="accordion-body" id="ex-b">
+          <div class="example-acc-body">
+            <div class="example-line"><span class="ev">Event 1 - RA ($6,500 fee)</span><span class="amt">$650</span></div>
+            <div class="example-line"><span class="ev">Event 2 - Licence ($18,000/yr)</span><span class="amt">$1,500</span></div>
+            <div class="example-total"><span class="tot-label">Total earned</span><span class="tot-amt">$2,150</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="ex-c" onclick="toggleAccordion(this,'examples-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">C</span>
+            <div>
+              <div class="accordion-title">Full journey</div>
+              <div class="accordion-preview">RA, licence, and first renewal - all three events from one introduction</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-family:var(--font-display); font-size:18px; font-weight:600; color:var(--steel-light);">$3,650</span>
+            <div class="accordion-icon"></div>
+          </div>
+        </button>
+        <div class="accordion-body" id="ex-c">
+          <div class="example-acc-body">
+            <div class="example-line"><span class="ev">Event 1 - RA ($6,500 fee)</span><span class="amt">$650</span></div>
+            <div class="example-line"><span class="ev">Event 2 - Licence ($18,000/yr)</span><span class="amt">$1,500</span></div>
+            <div class="example-line"><span class="ev">Event 3 - First renewal</span><span class="amt">$1,500</span></div>
+            <div class="example-total"><span class="tot-label">Total from one introduction</span><span class="tot-amt">$3,650</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:12px; color:var(--text-muted); font-style:italic; text-align:center; margin-top:10px;">All amounts ex GST. RA fee based on up-to-50-staff band. Licence based on Plus tier at $30/PEPM, 50 FTE, annual contract.</p>
+
+    <!-- CALCULATOR -->
+    <div class="calculator">
+      <div class="calc-title">Earnings estimator</div>
+      <div class="calc-sub">Estimate your potential earnings based on your referral activity.</div>
+      <div class="calc-grid">
+        <div class="calc-field">
+          <label>Introductions per year</label>
+          <input type="range" id="intros" min="1" max="20" value="4" oninput="calcUpdate()">
+          <div class="range-display"><span id="intros-val">4</span> <span>introductions / yr</span></div>
+        </div>
+        <div class="calc-field">
+          <label>Estimated conversion rate</label>
+          <select id="conv-rate" onchange="calcUpdate()">
+            <option value="0.2">Conservative - 1 in 5</option>
+            <option value="0.33" selected>Moderate - 1 in 3</option>
+            <option value="0.5">Strong - 1 in 2</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label>Typical business size</label>
+          <select id="biz-size" onchange="calcUpdate()">
+            <option value="small" selected>Small (40-60 staff)</option>
+            <option value="mid">Mid (61-100 staff)</option>
+            <option value="large">Large (101-200 staff)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label>Renewal assumption</label>
+          <select id="renewal" onchange="calcUpdate()">
+            <option value="0">No renewals assumed</option>
+            <option value="0.7" selected>Most renew (70%)</option>
+            <option value="1">All renew</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-result">
+        <div class="calc-result-item">
+          <div class="res-label">Expected conversions / yr</div>
+          <div class="res-val" id="res-conversions">1-2</div>
+          <div class="res-sub">paying customers</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="res-label">Est. earnings - Year 1</div>
+          <div class="res-val" id="res-yr1">$4.3k</div>
+          <div class="res-sub">ex GST</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="res-label">Est. earnings - Year 2</div>
+          <div class="res-val" id="res-yr2">$2.1k</div>
+          <div class="res-sub">renewals from Year 1 clients</div>
+        </div>
+      </div>
+      <p class="calc-note">Indicative only. Based on Plus tier, up-to-50-staff RA fee, and licence values from the GraceX financial model. Actual earnings depend on customer contract values.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENTS -->
+<section id="payments" class="bg-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="label">Payments</div>
+      <h2>How payments work</h2>
+    </div>
+    <div class="payment-grid">
+      <div class="payment-card">
+        <h3>Path A - RCTI</h3>
+        <span class="path-tag">If you are GST-registered</span>
+        <p>GraceX raises the invoice on your behalf. When a payment event is triggered and cleared funds are received from the customer, GraceX issues a Recipient-Created Tax Invoice directly to you. You do not need to send an invoice. Payment is made by EFT within 14 business days.</p>
+      </div>
+      <div class="payment-card">
+        <h3>Path B - Partner Invoice</h3>
+        <span class="path-tag">If you are not GST-registered</span>
+        <p>GraceX will notify you when a payment event is triggered. You then send a standard invoice to GraceX for the relevant amount. Payment is made by EFT within 14 business days of receipt of your invoice.</p>
+      </div>
+    </div>
+    <div class="payment-meta">
+      <div class="payment-meta-item">
+        <div class="pm-val">14</div>
+        <div class="pm-label">business days to payment</div>
+      </div>
+      <div class="payment-meta-item">
+        <div class="pm-val">EFT</div>
+        <div class="pm-label">to your nominated account</div>
+      </div>
+      <div class="payment-meta-item">
+        <div class="pm-val">$0</div>
+        <div class="pm-label">clawback if customer cancels</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey" class="bg-ivory">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="label">The Journey</div>
+      <h2>One introduction, three earning points</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-track"></div>
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="step-dot reg">1</div>
+          <div class="step-label">Introduction</div>
+          <div class="step-desc">You connect the prospect with GraceX and register within 48 hours</div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-dot ra">RA</div>
+          <div class="step-label">Readiness Assessment</div>
+          <div class="step-desc">Prospect completes the standalone diagnostic. GraceX delivers.</div>
+          <span class="step-earn">Event 1 - 10%</span>
+        </div>
+        <div class="timeline-step">
+          <div class="step-dot lic">Lic</div>
+          <div class="step-label">Licence Signed</div>
+          <div class="step-desc">Customer signs a Subscription Agreement. Onboarding begins.</div>
+          <span class="step-earn">Event 2 - $1,500-$3,000</span>
+        </div>
+        <div class="timeline-step">
+          <div class="step-dot ren">Ren</div>
+          <div class="step-label">First Renewal</div>
+          <div class="step-desc">Customer renews their subscription at the 12-month mark</div>
+          <span class="step-earn">Event 3 - $1,500-$3,000</span>
+        </div>
+        <div class="timeline-step">
+          <div class="step-dot win">24m</div>
+          <div class="step-label">Referral Window</div>
+          <div class="step-desc">All events must occur within 24 months of your registration date</div>
+        </div>
+      </div>
+    </div>
+    <p class="timeline-note">Your 24-month referral window starts from the registration confirmation timestamp. A 12-month licence plus time to convert means the window is structured to cover all three events comfortably.</p>
+  </div>
+</section>
+
+<!-- HOW TO REFER -->
+<section id="how-to-refer" class="bg-slate" style="padding:var(--section-pad);">
+  <div class="container">
+    <div class="register-inner">
+      <div class="label">Make a Referral</div>
+      <h2>One step. One form.</h2>
+      <p>Make the introduction. Then register the prospect using the form below within 48 hours. GraceX handles everything from there.</p>
+      <a href="https://forms.office.com/r/q4ksfK3dS2" target="_blank" class="btn-primary">Register a referral</a>
+      <div class="register-steps">
+        <div class="register-step">
+          <div class="rs-num">01</div>
+          <p>Make a direct introduction to a business owner or leader by email, phone, or in person</p>
+        </div>
+        <div class="register-step">
+          <div class="rs-num">02</div>
+          <p>Submit the registration form within 48 hours. You will receive automated confirmation with your 24-month window expiry date.</p>
+        </div>
+        <div class="register-step">
+          <div class="rs-num">03</div>
+          <p>GraceX takes it from here. You will be notified when a payment event is triggered.</p>
+        </div>
+      </div>
+      <p class="window-note">Attribution is based on first registration timestamp. If two affiliates register the same prospect, the earlier submission takes precedence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER TIERS -->
+<section id="tiers" class="bg-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="label">Partner Tiers</div>
+      <h2>Referral Partner and Preferred Partner</h2>
+    </div>
+    <div class="tier-grid">
+      <div class="tier-card referral">
+        <div class="tier-header">
+          <div class="tier-name">Referral Partner</div>
+          <div class="tier-sub">Default tier - from day one</div>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>Full access to all three compensation events</li>
+            <li>GraceX Referral Partner designation for use in professional profiles</li>
+            <li>Access to approved introduction language and reference materials</li>
+            <li>Quarterly partner briefing on GraceX program updates</li>
+            <li>Direct point of contact at GraceX</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tier-card preferred">
+        <div class="tier-header">
+          <div class="tier-name">Preferred Partner</div>
+          <div class="tier-sub">Unlocks after 2 qualifying conversions</div>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li>Everything in Referral Partner</li>
+            <li>Preferred Partner designation for use in professional profiles</li>
+            <li>Your business listed as a GraceX Preferred Partner on gracex.io</li>
+            <li>First access to new program materials and resources</li>
+            <li>Recognition in GraceX partner communications</li>
+            <li>Priority support from the GraceX team</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="tier-note">Preferred Partner recognition is non-financial. There is no revenue escalator or additional commission rate at this tier.</p>
+
+    <div class="badge-section">
+      <div class="badge-section-label">Your partner badge</div>
+      <div class="badge-variants">
+        <div class="badge-item">
+          <svg height="60" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" aria-label="Light variant">
+            <rect x="0" y="0" width="400" height="100" rx="6" fill="#EEEAE5" stroke="#A29B6E" stroke-width="1"/>
+            <rect x="0" y="0" width="6" height="100" rx="3" fill="#4D596A"/>
+            <text x="22" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#4D596A" letter-spacing="3">GRACEX</text>
+            <line x1="22" y1="56" x2="280" y2="56" stroke="#A29B6E" stroke-width="0.75"/>
+            <text x="22" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#7E8FA6" letter-spacing="2.5">REFERRAL PARTNER</text>
+          </svg>
+          <a href="gracex_badge_light.svg" download="gracex_badge_light.svg" class="badge-dl">Download light variant</a>
+        </div>
+        <div class="badge-item">
+          <svg height="60" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" aria-label="Dark variant">
+            <rect x="0" y="0" width="400" height="100" rx="6" fill="#4D596A"/>
+            <rect x="0" y="0" width="6" height="100" rx="3" fill="#A29B6E"/>
+            <text x="22" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#EEEAE5" letter-spacing="3">GRACEX</text>
+            <line x1="22" y1="56" x2="280" y2="56" stroke="#B4C9E6" stroke-width="0.75"/>
+            <text x="22" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#B4C9E6" letter-spacing="2.5">REFERRAL PARTNER</text>
+          </svg>
+          <a href="gracex_badge_dark.svg" download="gracex_badge_dark.svg" class="badge-dl">Download dark variant</a>
+        </div>
+      </div>
+      <p>Both variants are available for use in email signatures, LinkedIn profiles, and professional materials once your agreement is executed. Keep all three files (HTML and two SVGs) in the same folder for the download links to work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="foot-logo">GraceX</div>
+        <div class="foot-abn">GraceX Pty Ltd · ABN 53 679 155 072</div>
+        <p>Microsoft 365-native psychosocial risk management for Australian businesses.</p>
+        <p class="privacy-note">GraceX collects partner and prospect personal information solely to administer the affiliate program and process payments. For full details refer to our <a href="https://gracex.io/privacy-policy/" target="_blank">Privacy Policy</a>. A Partner Privacy Notice specific to this program will be published shortly.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:roland@gracex.io">roland@gracex.io</a>
+        <a href="https://gracex.io" target="_blank">gracex.io</a>
+        <a href="https://forms.office.com/r/q4ksfK3dS2" target="_blank">Referral Registration Form</a>
+      </div>
+      <div>
+        <h4>Documents</h4>
+        <a href="https://omnisres.sharepoint.com/:b:/g/IQAFx7uyZ2JnSqeFo5wg5ifXAWoFUvc5_C-cVBWwzA29joU?e=XTdDoI" target="_blank" class="foot-btn">Download Partner Agreement</a>
+        <p style="margin-top:12px; font-size:11.5px; color:var(--steel); line-height:1.6;">NSW governing law applies. Execute the agreement before making any referral.</p>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>2026 GraceX Pty Ltd. For partner use only. Not for public distribution.</span>
+      <span>Program terms apply · <a href="https://gracex.io/privacy-policy/" target="_blank" style="display:inline; font-size:11px; color:var(--sky);">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ACCORDION
+function toggleAccordion(trigger, groupId) {
+  const group = document.getElementById(groupId);
+  const targetId = trigger.getAttribute('data-target');
+  const targetBody = document.getElementById(targetId);
+  const isOpen = targetBody.classList.contains('open');
+
+  // Close all in group
+  group.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+  group.querySelectorAll('.accordion-trigger').forEach(t => t.classList.remove('open'));
+
+  // Open clicked if it was closed
+  if (!isOpen) {
+    targetBody.classList.add('open');
+    trigger.classList.add('open');
+  }
+}
+
+// CALCULATOR
+const RA_FEE  = { small: 6500, mid: 9500, large: 14500 };
+const LIC_ANN = { small: 18000, mid: 27000, large: 54000 };
+const THRESH  = 30000;
+
+function licComm(v) { return v >= THRESH ? 3000 : 1500; }
+
+function fmt(v) {
+  if (v === 0) return '$0';
+  if (v >= 1000) return '$' + (v / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+  return '$' + Math.round(v);
+}
+
+function calcUpdate() {
+  const intros    = parseInt(document.getElementById('intros').value);
+  const convRate  = parseFloat(document.getElementById('conv-rate').value);
+  const bizSize   = document.getElementById('biz-size').value;
+  const renewRate = parseFloat(document.getElementById('renewal').value);
+
+  document.getElementById('intros-val').textContent = intros;
+
+  const conv   = intros * convRate;
+  const raComm = RA_FEE[bizSize] * 0.10;
+  const lc     = licComm(LIC_ANN[bizSize]);
+  const yr1    = conv * (raComm + lc);
+  const yr2    = conv * renewRate * lc;
+
+  const lo = Math.floor(conv), hi = Math.ceil(conv);
+  document.getElementById('res-conversions').textContent = lo === hi ? String(lo) : lo + '-' + hi;
+  document.getElementById('res-yr1').textContent = fmt(yr1);
+  document.getElementById('res-yr2').textContent = fmt(yr2);
+}
+
+calcUpdate();
+</script>
+</body>
+</html>
