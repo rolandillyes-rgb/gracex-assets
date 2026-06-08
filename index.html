@@ -338,6 +338,7 @@
   .res-label {
     font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--steel); margin-bottom: 8px;
+    white-space: nowrap;
   }
   .res-val { font-family: var(--font-display); font-size: 30px; font-weight: 600; color: var(--ivory); }
   .res-sub { font-size: 11px; color: var(--steel); margin-top: 4px; font-weight: 300; }
@@ -576,6 +577,24 @@
     display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
   }
 
+  /* COMPENSATION TABLE MOBILE CARDS */
+  .events-table-mobile { display: none; }
+  .event-card {
+    background: var(--white); border-radius: var(--radius);
+    box-shadow: 0 1px 4px rgba(46,64,87,0.08);
+    padding: 18px 20px; margin-bottom: 10px;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 8px 16px; align-items: start;
+  }
+  .event-card-meta { grid-column: 1 / -1; }
+  .event-card-trigger { font-size: 13px; color: var(--text-mid); line-height: 1.55; grid-column: 1; }
+  .event-card-amount {
+    font-family: var(--font-display); font-size: 20px;
+    font-weight: 600; color: var(--steel-light); white-space: nowrap;
+    grid-column: 2; align-self: center;
+  }
+  .event-card-name { font-size: 13px; font-weight: 500; color: var(--slate-dark); margin-top: 4px; }
+
   /* RESPONSIVE */
   @media (max-width: 700px) {
     .unique-grid, .not-grid, .payment-grid, .tier-grid,
@@ -587,6 +606,11 @@
     .payment-meta { flex-direction: column; }
     .badge-variants { flex-direction: column; }
     .accordion-body { padding-left: 22px; }
+    /* Roles: stack to single column */
+    #your-role .role-grid { grid-template-columns: 1fr !important; }
+    /* Compensation table: hide table, show cards */
+    .events-table { display: none; }
+    .events-table-mobile { display: block; margin-bottom: 32px; }
   }
 
   /* ANIMATIONS */
@@ -716,7 +740,7 @@
 
     <!-- READINESS ASSESSMENT -->
     <div class="label" style="margin-top:40px; margin-bottom:10px;">Readiness Assessment</div>
-    <p style="font-size:15px; line-height:1.72; color:var(--text-mid); max-width:680px;">Before GraceX is deployed, every customer completes a Readiness Assessment. This is a structured review across ten domains covering governance, psychosocial risk management, policies, culture, workload, communication, onboarding, leave and flexibility, recognition, and supply chain. A trained assessor works through the domains with the customer across a series of sessions, drawing on documents, data, and structured conversations with key people. The output is a written report covering current state across all ten domains, prioritised recommendations, and an implementation roadmap that sequences the work before and during GraceX rollout. The assessment is a standalone product priced according to the complexity of the organisation and the scope of work required. It is not a bolt-on or an optional step. A solid foundation before rollout is what determines whether GraceX surfaces actionable insight or noise, which is why no customer proceeds to deployment without one.</p>
+    <p style="font-size:15px; line-height:1.72; color:var(--text-mid); max-width:680px;">Before GraceX is deployed, every customer completes a Readiness Assessment. This is a structured review across ten domains covering governance, psychosocial risk management, policies, culture, workload, communication, onboarding, leave and flexibility, recognition, and supply chain. A trained assessor works through the domains with the customer across a series of sessions, drawing on documents, data, and structured conversations with key people. The output is a written report covering current state across all ten domains, prioritised recommendations, and an implementation roadmap that sequences the work before and during GraceX rollout. The assessment is a standalone product priced according to the complexity of the organisation and the scope of work required. It is not a bolt-on or an optional step. No customer proceeds to GraceX deployment without one.</p>
 
     <!-- WHAT SETS GRACEX APART -->
     <div class="section-header" style="margin-top:48px; margin-bottom:24px;">
@@ -848,7 +872,7 @@
       <div class="label">Roles</div>
       <h2>What you do, and what GraceX does</h2>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+    <div class="role-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
       <div style="background:var(--slate-dark); padding:28px; border-radius:var(--radius);">
         <h3 style="font-family:var(--font-display); font-size:21px; font-weight:600; color:var(--sky-light); margin-bottom:18px;">Your role</h3>
         <ul style="list-style:none;">
@@ -917,7 +941,34 @@
       </tbody>
     </table>
 
-    <!-- WORKED EXAMPLES ACCORDION -->
+    <!-- COMPENSATION TABLE MOBILE -->
+    <div class="events-table-mobile">
+      <div class="event-card">
+        <div class="event-card-meta"><span class="event-tag tag-1">Event 1</span><div class="event-card-name">Readiness Assessment</div></div>
+        <div class="event-card-trigger">Customer purchases the GraceX Readiness Assessment</div>
+        <div class="event-card-amount">10% of RA fee</div>
+      </div>
+      <div class="event-card">
+        <div class="event-card-meta"><span class="event-tag tag-2">Event 2</span><div class="event-card-name">Licence Sale</div></div>
+        <div class="event-card-trigger">Contract value below $30,000</div>
+        <div class="event-card-amount">$1,500</div>
+      </div>
+      <div class="event-card">
+        <div class="event-card-meta"><span class="event-tag tag-2">Event 2</span><div class="event-card-name">Licence Sale (high value)</div></div>
+        <div class="event-card-trigger">Contract value $30,000 or above</div>
+        <div class="event-card-amount">$3,000</div>
+      </div>
+      <div class="event-card">
+        <div class="event-card-meta"><span class="event-tag tag-3">Event 3</span><div class="event-card-name">First Renewal</div></div>
+        <div class="event-card-trigger">Contract value below $30,000</div>
+        <div class="event-card-amount">$1,500</div>
+      </div>
+      <div class="event-card">
+        <div class="event-card-meta"><span class="event-tag tag-3">Event 3</span><div class="event-card-name">First Renewal (high value)</div></div>
+        <div class="event-card-trigger">Contract value $30,000 or above</div>
+        <div class="event-card-amount">$3,000</div>
+      </div>
+    </div>
     <div class="label" style="margin-bottom:10px;">Worked examples - indicative, ex GST, 50-person business</div>
     <div class="accordion" id="examples-acc">
       <div class="accordion-item">
@@ -1026,7 +1077,7 @@
       </div>
       <div class="calc-result">
         <div class="calc-result-item">
-          <div class="res-label">Expected conversions / yr</div>
+          <div class="res-label">Conversions / yr</div>
           <div class="res-val" id="res-conversions">1-2</div>
           <div class="res-sub">paying customers</div>
         </div>
@@ -1304,7 +1355,7 @@
           <a href="gracex_badge_dark.svg" download="gracex_badge_dark.svg" class="badge-dl">Download dark variant</a>
         </div>
       </div>
-      <p>Both variants are available for use in email signatures, LinkedIn profiles, and professional materials once your agreement is executed. </p>
+      <p>Both variants are available for use in email signatures, LinkedIn profiles, and professional materials once your agreement is executed.</p>
     </div>
   </div>
 </section>
