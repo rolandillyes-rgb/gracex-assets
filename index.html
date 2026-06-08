@@ -76,11 +76,28 @@
   /* HERO */
   .hero {
     background: var(--slate-dark);
-    padding: 96px 0 80px; position: relative; overflow: hidden;
+    padding: 0; position: relative; overflow: hidden;
   }
-  .hero::after {
-    content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 38%;
-    background: linear-gradient(135deg, rgba(180,201,230,0.04) 0%, rgba(162,155,110,0.07) 100%);
+  .hero-inner {
+    display: grid; grid-template-columns: 1fr 42%;
+    min-height: 560px; max-width: 100%;
+  }
+  .hero-content {
+    padding: 88px 48px 80px 36px;
+    max-width: 640px; justify-self: end; width: 100%;
+  }
+  .hero-image {
+    position: relative; overflow: hidden;
+  }
+  .hero-image img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block;
+    filter: brightness(0.82) contrast(1.05);
+  }
+  .hero-image::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--slate-dark) 0%, transparent 28%);
     pointer-events: none;
   }
   .hero-eyebrow {
@@ -100,8 +117,19 @@
     font-size: 17px; line-height: 1.72;
     color: var(--sky-light); max-width: 540px; font-weight: 300;
   }
+  .hero-mission {
+    font-family: var(--font-display);
+    font-size: clamp(17px, 2.2vw, 21px); font-weight: 400;
+    font-style: italic; color: var(--sand-light);
+    margin-bottom: 28px; max-width: 580px; line-height: 1.5;
+  }
   .hero-badge { margin-top: 44px; }
   .hero-badge svg { height: 58px; width: auto; }
+  @media (max-width: 720px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-image { height: 240px; }
+    .hero-content { padding: 56px 24px 48px; max-width: 100%; justify-self: stretch; }
+  }
 
   /* SECTION BACKGROUNDS */
   .bg-white  { background: var(--white); }
@@ -437,6 +465,60 @@
   .tier-card.preferred .tier-body ul li::before { color: var(--sand); }
   .tier-note { margin-top: 14px; font-size: 12px; color: var(--text-muted); font-style: italic; }
 
+  /* VALUES SECTION */
+  .values-section { padding: var(--section-pad); background: var(--ivory-light); }
+  .values-mission {
+    font-family: var(--font-display);
+    font-size: clamp(19px, 2.4vw, 24px); font-weight: 400; font-style: italic;
+    color: var(--slate-dark); margin-bottom: 40px; line-height: 1.5;
+  }
+  .accordion { border-top: 1px solid rgba(78,89,106,0.15); }
+  .accordion-item { border-bottom: 1px solid rgba(78,89,106,0.15); }
+  .accordion-trigger {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 0; text-align: left; gap: 16px;
+  }
+  .accordion-trigger:hover .accordion-title { color: var(--steel-light); }
+  .accordion-title {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 26px); font-weight: 600;
+    color: var(--slate-dark); transition: color 0.2s;
+  }
+  .accordion-summary {
+    font-size: 14px; color: var(--text-muted); font-weight: 300;
+    flex: 1; padding-left: 20px; line-height: 1.5;
+  }
+  .accordion-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+    border: 1px solid rgba(78,89,106,0.25); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s, background 0.2s;
+    color: var(--slate);
+  }
+  .accordion-item.open .accordion-icon {
+    transform: rotate(45deg); background: var(--slate-dark); color: var(--ivory);
+    border-color: var(--slate-dark);
+  }
+  .accordion-body {
+    display: none; padding: 0 0 28px;
+  }
+  .accordion-item.open .accordion-body { display: block; }
+  .accordion-points { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .accordion-points li {
+    display: grid; grid-template-columns: 28px 1fr;
+    gap: 12px; align-items: start;
+  }
+  .accordion-points li .pt-num {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+    color: var(--sand); padding-top: 3px;
+  }
+  .accordion-points li .pt-text { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+  .accordion-points li .pt-text strong {
+    display: block; font-size: 13px; font-weight: 500;
+    color: var(--slate-dark); margin-bottom: 3px; letter-spacing: 0.02em;
+  }
+
   /* BADGE SECTION */
   .badge-section {
     background: var(--ivory); border-radius: var(--radius);
@@ -515,8 +597,9 @@
   .hero .hero-eyebrow { animation: fadeUp 0.45s ease 0.05s both; }
   .hero h1            { animation: fadeUp 0.45s ease 0.12s both; }
   .hero .hero-rule    { animation: fadeUp 0.45s ease 0.18s both; }
-  .hero p             { animation: fadeUp 0.45s ease 0.22s both; }
-  .hero .hero-badge   { animation: fadeUp 0.45s ease 0.30s both; }
+  .hero .hero-mission { animation: fadeUp 0.45s ease 0.22s both; }
+  .hero p             { animation: fadeUp 0.45s ease 0.28s both; }
+  .hero .hero-badge   { animation: fadeUp 0.45s ease 0.36s both; }
 
   @keyframes slideDown {
     from { opacity: 0; transform: translateY(-6px); }
@@ -543,19 +626,25 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-eyebrow">GraceX Affiliate Program</div>
-    <h1>Introduce us once.<br><em>Earn across the relationship.</em></h1>
-    <div class="hero-rule"></div>
-    <p>You are here because someone at GraceX thinks you know business owners who carry personal liability for psychosocial risk at work. This page explains how the program works, what you earn, and what you are and are not expected to do.</p>
-    <div class="hero-badge">
-      <svg height="58" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GraceX Referral Partner badge">
-        <rect x="0" y="0" width="400" height="100" rx="6" fill="#4D596A"/>
-        <rect x="0" y="0" width="6" height="100" rx="3" fill="#A29B6E"/>
-        <text x="22" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#EEEAE5" letter-spacing="3">GRACEX</text>
-        <line x1="22" y1="56" x2="280" y2="56" stroke="#B4C9E6" stroke-width="0.75"/>
-        <text x="22" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#B4C9E6" letter-spacing="2.5">REFERRAL PARTNER</text>
-      </svg>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">GraceX Affiliate Program</div>
+      <h1>Introduce us once.<br><em>Earn across the relationship.</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-mission">We are GraceX. We equip leaders to act on unspoken employee signals.</p>
+      <p>You are here because someone at GraceX thinks you know business owners who carry personal liability for psychosocial risk at work. This page explains how the program works, what you earn, and what you are and are not expected to do.</p>
+      <div class="hero-badge">
+        <svg height="58" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GraceX Referral Partner badge">
+          <rect x="0" y="0" width="400" height="100" rx="6" fill="#4D596A"/>
+          <rect x="0" y="0" width="6" height="100" rx="3" fill="#A29B6E"/>
+          <text x="22" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#EEEAE5" letter-spacing="3">GRACEX</text>
+          <line x1="22" y1="56" x2="280" y2="56" stroke="#B4C9E6" stroke-width="0.75"/>
+          <text x="22" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#B4C9E6" letter-spacing="2.5">REFERRAL PARTNER</text>
+        </svg>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="GRACEX%20STILL-2.jpg" alt="A leader presenting to a team around a boardroom table" loading="eager">
     </div>
   </div>
 </section>
@@ -624,6 +713,10 @@
         </div>
       </div>
     </div>
+
+    <!-- READINESS ASSESSMENT -->
+    <div class="label" style="margin-top:40px; margin-bottom:10px;">Readiness Assessment</div>
+    <p style="font-size:15px; line-height:1.72; color:var(--text-mid); max-width:680px;">Before GraceX is deployed, every customer completes a Readiness Assessment. This is a structured review across ten domains covering governance, psychosocial risk management, policies, culture, workload, communication, onboarding, leave and flexibility, recognition, and supply chain. A trained assessor works through the domains with the customer across a series of sessions, drawing on documents, data, and structured conversations with key people. The output is a written report covering current state across all ten domains, prioritised recommendations, and an implementation roadmap that sequences the work before and during GraceX rollout. The assessment is a standalone product priced according to the complexity of the organisation and the scope of work required. It is not a bolt-on or an optional step. This step is crucial for the solid foundation.</p>
 
     <!-- WHAT SETS GRACEX APART -->
     <div class="section-header" style="margin-top:48px; margin-bottom:24px;">
@@ -1035,6 +1128,88 @@
   </div>
 </section>
 
+<!-- WHO WE ARE -->
+<section class="values-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="label">Who We Are</div>
+      <h2>How we work</h2>
+    </div>
+    <p class="values-mission">We are GraceX. We equip leaders to act on unspoken employee signals.</p>
+    <div class="accordion">
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-title">Transparency</span>
+          <span class="accordion-summary">Data guides our decisions. We stand by our words. Success is a shared responsibility.</span>
+          <span class="accordion-icon">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="accordion-body">
+          <ul class="accordion-points">
+            <li><span class="pt-num">1.1</span><span class="pt-text"><strong>We are imperfect and acknowledge it</strong>While striving for excellence, we understand that perfection is a journey, not a destination. Acknowledging our imperfections means we accept them conditionally, on the premise that we are always working toward the best possible outcome.</span></li>
+            <li><span class="pt-num">1.2</span><span class="pt-text"><strong>Data drives our decisions</strong>Data, in context, informs every decision. As W. E. Deming said, without data you are just another person with an opinion. Information alone is not knowledge. Knowing how to use it is.</span></li>
+            <li><span class="pt-num">1.3</span><span class="pt-text"><strong>We do what we say, we say what we do</strong>We value clarity and integrity. There are only three responses to a clear question: Yes, No, or I don't know. Decisions should always be transparent and, if incorrect, reassessed based on data.</span></li>
+            <li><span class="pt-num">1.4</span><span class="pt-text"><strong>We are all responsible for our success</strong>Success is a shared effort. We take collective ownership.</span></li>
+            <li><span class="pt-num">1.5</span><span class="pt-text"><strong>We aim to win, but not at any cost</strong>Ethical business is non-negotiable. Success is not worth compromising our values.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-title">Curiosity</span>
+          <span class="accordion-summary">No question is wrong if it is asked. Be bold and courageous. Your success is ours.</span>
+          <span class="accordion-icon">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="accordion-body">
+          <ul class="accordion-points">
+            <li><span class="pt-num">2.1</span><span class="pt-text"><strong>There is no wrong question if it is asked</strong>Questions foster growth. Curiosity drives us forward.</span></li>
+            <li><span class="pt-num">2.2</span><span class="pt-text"><strong>Be brave and strong</strong>If in doubt, flat out. We embrace challenges with courage.</span></li>
+            <li><span class="pt-num">2.3</span><span class="pt-text"><strong>We have your back</strong>We are a team. Roles are not defined by titles but by contributions. Trust and support are the foundations of our teamwork.</span></li>
+            <li><span class="pt-num">2.4</span><span class="pt-text"><strong>Your success is our success</strong>We rise together.</span></li>
+            <li><span class="pt-num">2.5</span><span class="pt-text"><strong>Speak up</strong>We value every voice and encourage open communication.</span></li>
+            <li><span class="pt-num">2.6</span><span class="pt-text"><strong>We are learners</strong>Continuous learning is a core element of our culture.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span class="accordion-title">Respect</span>
+          <span class="accordion-summary">Your well-being is our priority. We respect you for who you are. We practice empathy.</span>
+          <span class="accordion-icon">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="6" y1="0" x2="6" y2="12" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </span>
+        </button>
+        <div class="accordion-body">
+          <ul class="accordion-points">
+            <li><span class="pt-num">3.1</span><span class="pt-text"><strong>We are grateful to have you</strong>We recognise and appreciate each individual's unique contributions.</span></li>
+            <li><span class="pt-num">3.2</span><span class="pt-text"><strong>We respect you for who you are</strong>Respect is given unconditionally, based on individuality.</span></li>
+            <li><span class="pt-num">3.3</span><span class="pt-text"><strong>Empathy beyond sympathy</strong>We actively put ourselves in others' shoes, going beyond surface-level understanding.</span></li>
+            <li><span class="pt-num">3.4</span><span class="pt-text"><strong>We reward purposeful contributions</strong>Recognition and rewards are based on meaningful and impactful work.</span></li>
+            <li><span class="pt-num">3.5</span><span class="pt-text"><strong>Your well-being is first</strong>We prioritise the health, happiness, and well-being of everyone we work with.</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- HOW TO REFER -->
 <section id="how-to-refer" class="bg-slate" style="padding:var(--section-pad);">
   <div class="container">
@@ -1216,6 +1391,23 @@ function calcUpdate() {
 }
 
 calcUpdate();
+</script>
+
+<script>
+  document.querySelectorAll('.accordion-trigger').forEach(function(trigger) {
+    trigger.addEventListener('click', function() {
+      var item = this.closest('.accordion-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.accordion-item.open').forEach(function(openItem) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 </script>
 </body>
 </html>
