@@ -436,9 +436,9 @@
   .window-note { margin-top: 22px; font-size: 12px; color: var(--steel); font-style: italic; }
 
   /* TIERS */
-  .tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .tier-stack { display: flex; flex-direction: column; max-width: 580px; margin: 0 auto; }
   .tier-card { border-radius: var(--radius); overflow: hidden; }
-  .tier-header { padding: 22px 24px 18px; }
+  .tier-header { padding: 22px 24px 18px; display: flex; align-items: flex-start; justify-content: space-between; }
   .tier-card.referral .tier-header { background: var(--slate); }
   .tier-card.preferred .tier-header { background: var(--sand); }
   .tier-name {
@@ -450,6 +450,12 @@
   }
   .tier-card.referral .tier-sub { color: var(--sky-light); }
   .tier-card.preferred .tier-sub { color: rgba(255,255,255,0.7); }
+  .tier-step-badge {
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 2px; white-space: nowrap; margin-top: 2px; flex-shrink: 0;
+  }
+  .tier-card.referral .tier-step-badge { background: rgba(180,201,230,0.22); color: var(--sky-light); }
+  .tier-card.preferred .tier-step-badge { background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.85); }
   .tier-body {
     background: var(--white); border: 1px solid var(--sky);
     border-top: none; padding: 22px 24px;
@@ -464,7 +470,32 @@
   .tier-body ul li:last-child { border-bottom: none; }
   .tier-body ul li::before { content: '\2713'; color: var(--steel-light); font-weight: 600; flex-shrink: 0; }
   .tier-card.preferred .tier-body ul li::before { color: var(--sand); }
-  .tier-note { margin-top: 14px; font-size: 12px; color: var(--text-muted); font-style: italic; }
+  .tier-body ul li.inherited { color: var(--text-muted); }
+  .tier-body ul li.inherited::before { color: var(--sky); }
+
+  /* UNLOCK CONNECTOR */
+  .unlock-connector {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .unlock-line {
+    width: 1px; height: 22px; background: var(--sky);
+  }
+  .unlock-banner {
+    width: 100%; background: var(--slate-dark); border: 1px solid var(--sky);
+    border-radius: var(--radius); padding: 14px 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .unlock-icon {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: rgba(180,201,230,0.1); border: 1px solid rgba(180,201,230,0.2);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .unlock-icon svg { width: 18px; height: 18px; stroke: var(--sky); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .unlock-text-heading {
+    font-family: var(--font-display); font-size: 17px; font-weight: 600;
+    color: var(--ivory); margin-bottom: 2px;
+  }
+  .unlock-text-sub { font-size: 11.5px; color: var(--steel); font-weight: 300; }
 
   /* VALUES SECTION */
   .values-section { padding: var(--section-pad); background: var(--ivory-light); }
@@ -520,27 +551,7 @@
     color: var(--slate-dark); margin-bottom: 3px; letter-spacing: 0.02em;
   }
 
-  /* BADGE SECTION */
-  .badge-section {
-    background: var(--ivory); border-radius: var(--radius);
-    padding: 28px 32px; margin-top: 28px; border: 1px solid var(--sand-light);
-  }
-  .badge-section-label {
-    font-size: 10px; font-weight: 500; letter-spacing: 0.16em;
-    text-transform: uppercase; color: var(--sand); margin-bottom: 18px;
-  }
-  .badge-variants { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; margin-bottom: 18px; }
-  .badge-item { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
-  .badge-item svg { height: 60px; width: auto; }
-  .badge-dl {
-    display: inline-block; font-size: 11px; font-weight: 500;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--steel-light); text-decoration: none;
-    border-bottom: 1px solid var(--sky); padding-bottom: 1px;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .badge-dl:hover { color: var(--slate-dark); border-color: var(--slate-dark); }
-  .badge-section p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
 
   /* FOOTER */
   footer { background: var(--slate-dark); padding: 52px 0 40px; }
@@ -597,14 +608,13 @@
 
   /* RESPONSIVE */
   @media (max-width: 700px) {
-    .unique-grid, .not-grid, .payment-grid, .tier-grid,
+    .unique-grid, .not-grid, .payment-grid,
     .register-steps, .footer-grid, .calc-grid { grid-template-columns: 1fr; }
     .timeline-steps { grid-template-columns: 1fr 1fr; }
     .timeline-track { display: none; }
     .calc-result { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .payment-meta { flex-direction: column; }
-    .badge-variants { flex-direction: column; }
     .accordion-body { padding-left: 22px; }
     /* Roles: stack to single column */
     #your-role .role-grid { grid-template-columns: 1fr !important; }
@@ -1295,13 +1305,16 @@
     <div class="section-header">
       <div class="section-divider"></div>
       <div class="label">Partner Tiers</div>
-      <h2>Referral Partner and Preferred Partner</h2>
+      <h2>Two Tiers. One Path.</h2>
     </div>
-    <div class="tier-grid">
+    <div class="tier-stack">
       <div class="tier-card referral">
         <div class="tier-header">
-          <div class="tier-name">Referral Partner</div>
-          <div class="tier-sub">Default tier - from day one</div>
+          <div>
+            <div class="tier-name">Referral Partner</div>
+            <div class="tier-sub">Default tier - from day one</div>
+          </div>
+          <span class="tier-step-badge">Step 1</span>
         </div>
         <div class="tier-body">
           <ul>
@@ -1313,14 +1326,35 @@
           </ul>
         </div>
       </div>
+
+      <div class="unlock-connector">
+        <div class="unlock-line"></div>
+        <div class="unlock-banner">
+          <div class="unlock-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 9.9-1"/>
+            </svg>
+          </div>
+          <div>
+            <div class="unlock-text-heading">Unlocks after 2 qualifying conversions</div>
+            <div class="unlock-text-sub">Preferred Partner status activates automatically once both are complete</div>
+          </div>
+        </div>
+        <div class="unlock-line"></div>
+      </div>
+
       <div class="tier-card preferred">
         <div class="tier-header">
-          <div class="tier-name">Preferred Partner</div>
-          <div class="tier-sub">Unlocks after 2 qualifying conversions</div>
+          <div>
+            <div class="tier-name">Preferred Partner</div>
+            <div class="tier-sub">Builds on everything in Referral</div>
+          </div>
+          <span class="tier-step-badge">Step 2</span>
         </div>
         <div class="tier-body">
           <ul>
-            <li>Everything in Referral Partner</li>
+            <li class="inherited">Everything in Referral Partner</li>
             <li>Preferred Partner designation for use in professional profiles</li>
             <li>Your business listed as a GraceX Preferred Partner on gracex.io</li>
             <li>First access to new program materials and resources</li>
@@ -1329,34 +1363,6 @@
           </ul>
         </div>
       </div>
-    </div>
-    <p class="tier-note">Preferred Partner recognition is non-financial. There is no revenue escalator or additional commission rate at this tier.</p>
-
-    <div class="badge-section">
-      <div class="badge-section-label">Your partner badge</div>
-      <div class="badge-variants">
-        <div class="badge-item">
-          <svg height="60" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" aria-label="Light variant">
-            <rect x="0" y="0" width="400" height="100" rx="6" fill="#EEEAE5" stroke="#A29B6E" stroke-width="1"/>
-            <rect x="0" y="0" width="6" height="100" rx="3" fill="#4D596A"/>
-            <text x="22" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#4D596A" letter-spacing="3">GRACEX</text>
-            <line x1="22" y1="56" x2="280" y2="56" stroke="#A29B6E" stroke-width="0.75"/>
-            <text x="22" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#7E8FA6" letter-spacing="2.5">REFERRAL PARTNER</text>
-          </svg>
-          <a href="gracex_badge_light.svg" download="gracex_badge_light.svg" class="badge-dl">Download light variant</a>
-        </div>
-        <div class="badge-item">
-          <svg height="60" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" aria-label="Dark variant">
-            <rect x="0" y="0" width="400" height="100" rx="6" fill="#4D596A"/>
-            <rect x="0" y="0" width="6" height="100" rx="3" fill="#A29B6E"/>
-            <text x="22" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#EEEAE5" letter-spacing="3">GRACEX</text>
-            <line x1="22" y1="56" x2="280" y2="56" stroke="#B4C9E6" stroke-width="0.75"/>
-            <text x="22" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#B4C9E6" letter-spacing="2.5">REFERRAL PARTNER</text>
-          </svg>
-          <a href="gracex_badge_dark.svg" download="gracex_badge_dark.svg" class="badge-dl">Download dark variant</a>
-        </div>
-      </div>
-      <p>Both variants are available for use in email signatures, LinkedIn profiles, and professional materials once your agreement is executed.</p>
     </div>
   </div>
 </section>
