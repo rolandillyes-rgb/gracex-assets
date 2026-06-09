@@ -553,6 +553,66 @@
 
 
 
+  /* PARTNER RESOURCES */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  @media (max-width: 1100px) { .resources-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px)  { .resources-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 460px)  { .resources-grid { grid-template-columns: 1fr; } }
+  .resource-card {
+    border: 1px solid var(--sky);
+    border-radius: var(--radius);
+    padding: 20px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .resource-card:hover { border-color: var(--steel-light); box-shadow: 0 2px 12px rgba(78,99,120,0.10); }
+  .resource-card-cta { border-color: var(--sand); }
+  .resource-card-cta:hover { border-color: var(--sand); box-shadow: 0 2px 12px rgba(162,155,110,0.15); }
+  .resource-icon {
+    width: 36px; height: 36px;
+    background: #EEF4FA;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .resource-icon svg { width: 18px; height: 18px; stroke: var(--steel); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .resource-badge-preview {
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    line-height: 0;
+  }
+  .resource-badge-preview svg { display: block; width: 100%; height: auto; }
+  .resource-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--steel-light);
+  }
+  .resource-title {
+    font-family: var(--font-display); font-size: 15px;
+    color: var(--slate); font-weight: 600; line-height: 1.3;
+    flex: 1;
+  }
+  .resource-dl {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 500; color: var(--steel);
+    text-decoration: none; padding: 7px 14px;
+    border: 1px solid var(--sky); border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+    width: fit-content;
+  }
+  .resource-dl:hover { background: var(--slate); color: var(--ivory); border-color: var(--slate); }
+  .resource-dl-cta { border-color: var(--sand); color: var(--slate); }
+  .resource-dl-cta:hover { background: var(--sand); color: var(--ivory); border-color: var(--sand); }
+  .resource-dl svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
   /* FOOTER */
   footer { background: var(--slate-dark); padding: 52px 0 40px; }
   .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
@@ -654,6 +714,7 @@
       <li><a href="#compensation">What You Earn</a></li>
       <li><a href="#how-to-refer">Make a Referral</a></li>
       <li><a href="#tiers">Partner Tiers</a></li>
+      <li><a href="#resources">Documents</a></li>
     </ul>
   </div>
 </nav>
@@ -1367,31 +1428,115 @@
   </div>
 </section>
 
+<!-- PARTNER RESOURCES -->
+<section id="resources" class="bg-ivory">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="label">Partner Resources</div>
+      <h2>Everything You Need</h2>
+    </div>
+    <p style="text-align:left; font-size:14px; color:var(--text-mid); margin-top:-16px; margin-bottom:0;">Program documents and partner assets, available to download at any time.</p>
+    <div class="resources-grid">
+
+      <!-- Referral Partner Badge (Light) -->
+      <div class="resource-card">
+        <div class="resource-label">Partner Asset</div>
+        <div class="resource-badge-preview resource-badge-light">
+          <svg width="100%" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GraceX Referral Partner badge light">
+            <rect x="0" y="0" width="400" height="100" rx="6" fill="#EEEAE5"/>
+            <rect x="0" y="0" width="6" height="100" rx="3" fill="#A29B6E"/>
+            <text x="22" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#2E4057" letter-spacing="3">GRACEX</text>
+            <line x1="22" y1="56" x2="280" y2="56" stroke="#7E8FA6" stroke-width="0.75"/>
+            <text x="22" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#547B93" letter-spacing="2.5">REFERRAL PARTNER</text>
+          </svg>
+        </div>
+        <div class="resource-title">Referral Partner Badge</div>
+        <a href="gracex_badge_light.svg" download="gracex_badge_light.svg" class="resource-dl">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Light version
+        </a>
+      </div>
+
+      <!-- Referral Partner Badge (Dark) -->
+      <div class="resource-card">
+        <div class="resource-label">Partner Asset</div>
+        <div class="resource-badge-preview resource-badge-dark">
+          <svg width="100%" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GraceX Referral Partner badge dark">
+            <rect x="0" y="0" width="400" height="100" rx="6" fill="#4D596A"/>
+            <rect x="0" y="0" width="6" height="100" rx="3" fill="#A29B6E"/>
+            <text x="22" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#EEEAE5" letter-spacing="3">GRACEX</text>
+            <line x1="22" y1="56" x2="280" y2="56" stroke="#B4C9E6" stroke-width="0.75"/>
+            <text x="22" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#B4C9E6" letter-spacing="2.5">REFERRAL PARTNER</text>
+          </svg>
+        </div>
+        <div class="resource-title">Referral Partner Badge</div>
+        <a href="gracex_badge_dark.svg" download="gracex_badge_dark.svg" class="resource-dl">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Dark version
+        </a>
+      </div>
+
+      <!-- Partner Agreement -->
+      <div class="resource-card">
+        <div class="resource-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="resource-label">Legal Document</div>
+        <div class="resource-title">Referral Partner Agreement</div>
+        <a href="https://affiliate.gracex.io/GraceX_Referral_Partner_Agreement_v3.pdf" target="_blank" class="resource-dl">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
+      </div>
+
+      <!-- Partner Privacy Notice -->
+      <div class="resource-card">
+        <div class="resource-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="resource-label">Privacy</div>
+        <div class="resource-title">Partner Privacy Notice</div>
+        <a href="https://affiliate.gracex.io/gracex-partner-privacy-notice.pdf" target="_blank" class="resource-dl">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
+      </div>
+
+      <!-- Referral Registration Form -->
+      <div class="resource-card resource-card-cta">
+        <div class="resource-icon">
+          <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <div class="resource-label">Register</div>
+        <div class="resource-title">Referral Registration Form</div>
+        <a href="https://forms.office.com/r/q4ksfK3dS2" target="_blank" class="resource-dl resource-dl-cta">
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Open Form
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-grid">
+    <div class="footer-grid" style="grid-template-columns: 1.5fr 1fr;">
       <div>
         <div class="foot-logo">GraceX</div>
         <div class="foot-abn">GraceX Pty Ltd · ABN 53 679 155 072</div>
-        <p>Microsoft 365-native psychosocial risk management for Australian businesses.</p>
-        <p class="privacy-note">GraceX collects partner and prospect personal information solely to administer the affiliate program and process payments. For full details refer to our <a href="https://gracex.io/privacy-policy/" target="_blank">Privacy Policy</a>. A Partner Privacy Notice specific to this program will be published shortly.</p>
+        <p class="privacy-note">GraceX collects partner and prospect personal information solely to administer the affiliate program and process payments. See our <a href="https://affiliate.gracex.io/gracex-partner-privacy-notice.pdf" target="_blank">Partner Privacy Notice</a> and <a href="https://gracex.io/privacy-policy/" target="_blank">Privacy Policy</a> for full details.</p>
       </div>
       <div>
         <h4>Contact</h4>
         <a href="mailto:roland@gracex.io">roland@gracex.io</a>
         <a href="https://gracex.io" target="_blank">gracex.io</a>
-        <a href="https://forms.office.com/r/q4ksfK3dS2" target="_blank">Referral Registration Form</a>
-      </div>
-      <div>
-        <h4>Documents</h4>
-        <a href="https://omnisres.sharepoint.com/:b:/g/IQAFx7uyZ2JnSqeFo5wg5ifXAWoFUvc5_C-cVBWwzA29joU?e=XTdDoI" target="_blank" class="foot-btn">Download Partner Agreement</a>
-        <p style="margin-top:12px; font-size:11.5px; color:var(--steel); line-height:1.6;">NSW governing law applies. Execute the agreement before making any referral.</p>
       </div>
     </div>
     <div class="footer-base">
       <span>2026 GraceX Pty Ltd. For partner use only. Not for public distribution.</span>
-      <span>Program terms apply · <a href="https://gracex.io/privacy-policy/" target="_blank" style="display:inline; font-size:11px; color:var(--sky);">Privacy Policy</a></span>
     </div>
   </div>
 </footer>
