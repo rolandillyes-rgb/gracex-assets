@@ -700,6 +700,48 @@
     to   { opacity: 1; transform: translateY(0); }
   }
   .accordion-body.open { animation: slideDown 0.2s ease both; }
+
+  /* FAQ POINTS */
+  .faq-points {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .faq-points li {
+    display: grid; grid-template-columns: 18px 1fr;
+    gap: 10px; align-items: start;
+    font-size: 13.5px; color: var(--text-mid); line-height: 1.65;
+  }
+  .faq-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--sand); flex-shrink: 0; margin-top: 7px;
+  }
+  .faq-points li strong { color: var(--slate-dark); }
+
+  /* FAQ STAT ROW */
+  .faq-stat-row {
+    display: flex; gap: 0;
+    border: 1px solid var(--sky); border-radius: var(--radius);
+    overflow: hidden; background: var(--ivory-light);
+  }
+  .faq-stat {
+    flex: 1; padding: 16px 18px; text-align: center;
+    border-right: 1px solid var(--sky);
+  }
+  .faq-stat:last-child { border-right: none; }
+  .faq-stat-val {
+    font-family: var(--font-display); font-size: 26px;
+    font-weight: 600; color: var(--slate-dark); line-height: 1;
+    margin-bottom: 4px;
+  }
+  .faq-stat-label {
+    font-size: 11px; color: var(--text-muted);
+    letter-spacing: 0.04em; line-height: 1.4;
+  }
+  @media (max-width: 520px) {
+    .faq-stat-row { flex-direction: column; }
+    .faq-stat { border-right: none; border-bottom: 1px solid var(--sky); }
+    .faq-stat:last-child { border-bottom: none; }
+  }
 </style>
 </head>
 <body>
@@ -710,8 +752,8 @@
     <a class="nav-logo" href="#">GraceX</a>
     <ul class="nav-links">
       <li><a href="#platform">The Platform</a></li>
-      <li><a href="#your-role">Your Role</a></li>
       <li><a href="#compensation">What You Earn</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#how-to-refer">Make a Referral</a></li>
       <li><a href="#tiers">Partner Tiers</a></li>
       <li><a href="#resources">Documents</a></li>
@@ -813,158 +855,7 @@
     <div class="label" style="margin-top:40px; margin-bottom:10px;">Readiness Assessment</div>
     <p style="font-size:15px; line-height:1.72; color:var(--text-mid); max-width:680px;">Before GraceX is deployed, every customer completes a Readiness Assessment. This is a structured review across ten domains covering governance, psychosocial risk management, policies, culture, workload, communication, onboarding, leave and flexibility, recognition, and supply chain. A trained assessor works through the domains with the customer across a series of sessions, drawing on documents, data, and structured conversations with key people. The output is a written report covering current state across all ten domains, prioritised recommendations, and an implementation roadmap that sequences the work before and during GraceX rollout. The assessment is a standalone product priced according to the complexity of the organisation and the scope of work required. It is not a bolt-on or an optional step. No customer proceeds to GraceX deployment without one.</p>
 
-    <!-- WHAT SETS GRACEX APART -->
-    <div class="section-header" style="margin-top:48px; margin-bottom:24px;">
-      <div class="section-divider"></div>
-      <div class="label">Differentiators</div>
-      <h2>What sets GraceX apart</h2>
-    </div>
-    <div class="unique-grid" style="margin-bottom:28px;">
-      <div class="unique-item">
-        <div class="unique-num">01</div>
-        <div>
-          <h4>Data never leaves the customer's tenant</h4>
-          <p>All data is stored inside the customer's own Microsoft 365 environment. GraceX holds nothing. Only de-identified survey summaries reach the expert for review.</p>
-        </div>
-      </div>
-      <div class="unique-item">
-        <div class="unique-num">02</div>
-        <div>
-          <h4>No new software, no IT project</h4>
-          <p>GraceX runs entirely on Teams, SharePoint, and Forms the business already pays for. Nothing to install, no additional licence to buy, no change management required.</p>
-        </div>
-      </div>
-      <div class="unique-item">
-        <div class="unique-num">03</div>
-        <div>
-          <h4>Human expert, not an algorithm</h4>
-          <p>Survey results are reviewed by a human expert every month. The written report and leadership actions come from professional judgement, not automated scoring or pattern detection.</p>
-        </div>
-      </div>
-      <div class="unique-item">
-        <div class="unique-num">04</div>
-        <div>
-          <h4>Structured to the 2024 WHS Code of Practice</h4>
-          <p>GraceX is designed around the Australian Code of Practice for Managing Psychosocial Hazards at Work. It gives PCBUs a defensible, documented compliance posture, not just a survey tool.</p>
-        </div>
-      </div>
-      <div class="unique-item">
-        <div class="unique-num">05</div>
-        <div>
-          <h4>Continuous and documented</h4>
-          <p>Unlike one-off assessments or annual surveys, GraceX operates fortnightly. The result is an ongoing evidence trail of consultation, action, and review that a PCBU can demonstrate to a regulator.</p>
-        </div>
-      </div>
-      <div class="unique-item">
-        <div class="unique-num">06</div>
-        <div>
-          <h4>Built for the business owner, not the HR specialist</h4>
-          <p>Designed for a CEO or MD carrying personal WHS liability. Plain language, specific actions, Power BI visibility. No specialist knowledge required to operate it.</p>
-        </div>
-      </div>
-    </div>
 
-    <!-- NOT LIST REDESIGN -->
-    <div class="label" style="margin-bottom:14px;">Important distinctions</div>
-    <div class="not-grid">
-      <div class="not-item">
-        <div class="not-cross"></div>
-        <div class="not-item-text">
-          <h5>Not an AI tool or chatbot</h5>
-          <p>GraceX does not use artificial intelligence, machine learning, or automated decision-making. All analysis and recommendations come from a human expert.</p>
-        </div>
-      </div>
-      <div class="not-item">
-        <div class="not-cross"></div>
-        <div class="not-item-text">
-          <h5>Not an EAP or counselling service</h5>
-          <p>GraceX is a risk management and compliance platform. It does not provide individual counselling, crisis support, or clinical services of any kind.</p>
-        </div>
-      </div>
-      <div class="not-item">
-        <div class="not-cross"></div>
-        <div class="not-item-text">
-          <h5>Not an algorithmic monitoring system</h5>
-          <p>GraceX does not score, rank, or flag individual employees. Survey responses are de-identified. The platform monitors organisational patterns, not individuals.</p>
-        </div>
-      </div>
-      <div class="not-item">
-        <div class="not-cross"></div>
-        <div class="not-item-text">
-          <h5>Not a consulting engagement</h5>
-          <p>GraceX is a subscription platform, not a project or consulting arrangement. There are no variable day rates, no scope creep, and no dependency on consultant availability.</p>
-        </div>
-      </div>
-      <div class="not-item">
-        <div class="not-cross"></div>
-        <div class="not-item-text">
-          <h5>Not new software to install</h5>
-          <p>GraceX requires no new applications, no app store downloads, and no IT department involvement. It is deployed entirely within the customer's existing Microsoft 365 environment.</p>
-        </div>
-      </div>
-      <div class="not-item">
-        <div class="not-cross"></div>
-        <div class="not-item-text">
-          <h5>Not a replacement for EAP</h5>
-          <p>GraceX and EAP serve different purposes. EAP is a reactive support service. GraceX is a proactive risk management and compliance system. They are complementary, not substitutes.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- INTRO LANGUAGE ACCORDION -->
-    <div class="label" style="margin-bottom:10px; margin-top:32px;">Introduction resources</div>
-    <div class="accordion" id="intro-acc">
-      <div class="accordion-item">
-        <button class="accordion-trigger" data-target="intro-lang" onclick="toggleAccordion(this,'intro-acc')">
-          <div class="accordion-trigger-left">
-            <span class="accordion-num" style="font-size:14px; width:auto; color: var(--sky);">&#9656;</span>
-            <div>
-              <div class="accordion-title">Suggested introduction language</div>
-              <div class="accordion-preview">Verbatim language to use when introducing GraceX to a prospect</div>
-            </div>
-          </div>
-          <div class="accordion-icon"></div>
-        </button>
-        <div class="accordion-body" id="intro-lang">
-          <p class="intro-body">I wanted to introduce you to GraceX, a psychosocial risk management platform built inside Microsoft 365. It is designed for business owners and leaders who carry personal WHS liability and need a structured, documented approach to psychosocial hazard management. It is not an AI tool or a counselling service. It runs through Teams, Forms, and SharePoint your business already uses, with a human expert reviewing results each month and producing a written report with specific actions. Happy to connect you with the GraceX team if that sounds relevant.</p>
-          <p class="intro-hint">Use verbatim or adapt to your voice. Do not discuss pricing, scope, or product capabilities beyond this.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- YOUR ROLE -->
-<section id="your-role" class="bg-white">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-divider"></div>
-      <div class="label">Roles</div>
-      <h2>What you do, and what GraceX does</h2>
-    </div>
-    <div class="role-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-      <div style="background:var(--slate-dark); padding:28px; border-radius:var(--radius);">
-        <h3 style="font-family:var(--font-display); font-size:21px; font-weight:600; color:var(--sky-light); margin-bottom:18px;">Your role</h3>
-        <ul style="list-style:none;">
-          <li style="font-size:13.5px; color:var(--sky-light); padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.07); display:flex; gap:10px;"><span style="color:var(--sand-light); flex-shrink:0;">&#8594;</span>Identify a business owner or leader who may have a psychosocial WHS obligation</li>
-          <li style="font-size:13.5px; color:var(--sky-light); padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.07); display:flex; gap:10px;"><span style="color:var(--sand-light); flex-shrink:0;">&#8594;</span>Make a direct introduction to GraceX by email, phone, or in person</li>
-          <li style="font-size:13.5px; color:var(--sky-light); padding:8px 0; display:flex; gap:10px;"><span style="color:var(--sand-light); flex-shrink:0;">&#8594;</span>Register the referral via the online form within 48 hours of the introduction</li>
-        </ul>
-      </div>
-      <div style="background:var(--white); padding:28px; border-radius:var(--radius); border:1px solid var(--sky);">
-        <h3 style="font-family:var(--font-display); font-size:21px; font-weight:600; color:var(--slate-dark); margin-bottom:18px;">GraceX's role</h3>
-        <ul style="list-style:none;">
-          <li style="font-size:13.5px; color:var(--text-mid); padding:8px 0; border-bottom:1px solid rgba(0,0,0,0.05); display:flex; gap:10px;"><span style="color:var(--steel-light); flex-shrink:0;">&#8594;</span>Conduct all sales conversations and discovery</li>
-          <li style="font-size:13.5px; color:var(--text-mid); padding:8px 0; border-bottom:1px solid rgba(0,0,0,0.05); display:flex; gap:10px;"><span style="color:var(--steel-light); flex-shrink:0;">&#8594;</span>Present pricing and scope to the prospect</li>
-          <li style="font-size:13.5px; color:var(--text-mid); padding:8px 0; border-bottom:1px solid rgba(0,0,0,0.05); display:flex; gap:10px;"><span style="color:var(--steel-light); flex-shrink:0;">&#8594;</span>Deliver the Readiness Assessment and onboarding</li>
-          <li style="font-size:13.5px; color:var(--text-mid); padding:8px 0; border-bottom:1px solid rgba(0,0,0,0.05); display:flex; gap:10px;"><span style="color:var(--steel-light); flex-shrink:0;">&#8594;</span>Operate the platform and provide expert review throughout the subscription</li>
-          <li style="font-size:13.5px; color:var(--text-mid); padding:8px 0; display:flex; gap:10px;"><span style="color:var(--steel-light); flex-shrink:0;">&#8594;</span>Notify you when a payment event is triggered and process payment within 14 business days</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- COMPENSATION -->
 <section id="compensation" class="bg-ivory">
@@ -1169,39 +1060,189 @@
   </div>
 </section>
 
-<!-- PAYMENTS -->
-<section id="payments" class="bg-white">
+
+
+<!-- FAQ -->
+<section id="faq" class="bg-white">
   <div class="container">
     <div class="section-header">
       <div class="section-divider"></div>
-      <div class="label">Payments</div>
-      <h2>How payments work</h2>
+      <div class="label">Partner FAQ</div>
+      <h2>Questions partners ask</h2>
     </div>
-    <div class="payment-grid">
-      <div class="payment-card">
-        <h3>Path A - RCTI</h3>
-        <span class="path-tag">If you are GST-registered</span>
-        <p>GraceX raises the invoice on your behalf. When a payment event is triggered and cleared funds are received from the customer, GraceX issues a Recipient-Created Tax Invoice directly to you. You do not need to send an invoice. Payment is made by EFT within 14 business days.</p>
+    <div class="accordion" id="faq-acc">
+
+      <!-- Q1 -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="faq-1" onclick="toggleAccordion(this,'faq-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">01</span>
+            <div>
+              <div class="accordion-title">How do I identify a suitable prospect to refer?</div>
+              <div class="accordion-preview">Six signals that indicate a strong fit</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="faq-1">
+          <ul class="faq-points" style="margin-bottom:16px;">
+            <li><span class="faq-dot"></span><span><strong>High staff turnover.</strong> Employee turnover above 5% in the last 12 months, or a business that appears to be in a permanent recruitment cycle. A fast-growth or scale-up phase produces the same conditions and is equally strong as an entry point.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Known absenteeism problem.</strong> If the business recognises that unplanned leave is an issue, particularly where it is running above seven days per employee per year on average, that points to an underlying problem GraceX is designed to surface.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Approaching an M&amp;A.</strong> Pre-transaction, GraceX can support the psychosocial risk component of due diligence. This is a credible and specific entry point with boards and acquirers.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Post-M&amp;A integration.</strong> After a transaction closes, staff navigate uncertainty, leadership change, and cultural adjustment. The psychosocial risk profile of the combined business is elevated. Leaders often do not have visibility of it.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Board requesting psychosocial risk reporting.</strong> If the board has asked for this, the CEO needs a documented, defensible response. GraceX provides exactly that.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Workers compensation renewal within three months.</strong> Insurers are increasingly pricing psychosocial risk. A business approaching renewal has a direct financial reason to act.</span></li>
+          </ul>
+          <p style="font-size:13.5px; color:var(--slate-dark); line-height:1.7; border-left:3px solid var(--sand); padding-left:14px; font-style:italic;">The common thread is a CEO or MD who either knows they have a problem or is about to be asked to demonstrate they have one under control.</p>
+        </div>
       </div>
-      <div class="payment-card">
-        <h3>Path B - Partner Invoice</h3>
-        <span class="path-tag">If you are not GST-registered</span>
-        <p>GraceX will notify you when a payment event is triggered. You then send a standard invoice to GraceX for the relevant amount. Payment is made by EFT within 14 business days of receipt of your invoice.</p>
+
+      <!-- Q2 -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="faq-2" onclick="toggleAccordion(this,'faq-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">02</span>
+            <div>
+              <div class="accordion-title">What makes GraceX different from other workplace tools?</div>
+              <div class="accordion-preview">Three distinctions that matter in a sales conversation</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="faq-2">
+          <ul class="faq-points">
+            <li><span class="faq-dot"></span><span><strong>No new software.</strong> GraceX runs entirely inside Microsoft 365 tools the business already uses. Nothing to install, no new software to licence, no IT project to manage.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Data never leaves the customer's tenant.</strong> All data stays inside the customer's own Microsoft 365 environment at all times. GraceX holds nothing. Only de-identified survey summaries reach the expert for review.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Human expert, not an algorithm.</strong> Survey results are reviewed by a human organisational psychologist. The monthly report and the leadership actions that come with it are the product of professional judgement, not automated scoring or pattern detection.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Structured to the 2024 WHS Code of Practice.</strong> GraceX is designed specifically around the Australian Code of Practice for Managing Psychosocial Hazards at Work. Customers build a defensible, documented compliance posture, not just a survey habit.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Continuous, not one-off.</strong> GraceX operates fortnightly. The result is an ongoing evidence trail of consultation, action, and review that a business can demonstrate to a regulator.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Built for the business owner.</strong> Designed for a CEO or MD carrying personal WHS liability, not an HR specialist. Plain language, specific actions, Power BI visibility. No specialist knowledge required to operate it.</span></li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="payment-meta">
-      <div class="payment-meta-item">
-        <div class="pm-val">14</div>
-        <div class="pm-label">business days to payment</div>
+
+      <!-- Q3 -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="faq-3" onclick="toggleAccordion(this,'faq-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">03</span>
+            <div>
+              <div class="accordion-title">What is GraceX not?</div>
+              <div class="accordion-preview">Important distinctions to have clear before any conversation</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="faq-3">
+          <ul class="faq-points">
+            <li><span class="faq-dot"></span><span><strong>Not an AI tool or chatbot.</strong> GraceX does not use artificial intelligence, machine learning, or automated decision-making of any kind. All analysis and recommendations come from a human expert.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Not an algorithmic monitoring system.</strong> GraceX does not score, rank, or flag individual employees. Survey responses are de-identified. The platform captures anonymous responses at the organisational level, not individual behaviour.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Not an EAP or counselling service.</strong> GraceX does not provide individual counselling, crisis support, or clinical services of any kind. If a business already has an EAP, GraceX works alongside it.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Not a consulting engagement.</strong> GraceX is a subscription platform, not a project or advisory arrangement. There are no variable day rates, no scope creep, and no dependency on consultant availability.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Not a one-off assessment.</strong> GraceX operates continuously. The Readiness Assessment is a prerequisite product, not the platform itself. The subscription runs fortnightly, month after month.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Not new software to install.</strong> GraceX requires no new applications, no app store downloads, and no IT department involvement. It is deployed entirely within the customer's existing Microsoft 365 environment.</span></li>
+          </ul>
+        </div>
       </div>
-      <div class="payment-meta-item">
-        <div class="pm-val">EFT</div>
-        <div class="pm-label">to your nominated account</div>
+
+      <!-- Q4 -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="faq-4" onclick="toggleAccordion(this,'faq-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">04</span>
+            <div>
+              <div class="accordion-title">What should I say when I introduce GraceX?</div>
+              <div class="accordion-preview">Suggested language, verbatim or adapted</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="faq-4">
+          <p class="intro-body">I wanted to introduce you to GraceX, a psychosocial risk management platform built inside Microsoft 365. It is designed for business owners and leaders who carry personal WHS liability and need a structured, documented approach. It runs through Teams, Forms, and SharePoint your business already uses, with a human expert reviewing results each month and producing a written report with specific actions. Happy to connect you with the GraceX team if that sounds relevant.</p>
+          <p class="intro-hint">Adapt to your voice but do not simplify the product description. GraceX is a risk management platform, not a culture or wellbeing program. If in doubt, keep it short and let GraceX do the explaining.</p>
+        </div>
       </div>
-      <div class="payment-meta-item">
-        <div class="pm-val">$0</div>
-        <div class="pm-label">clawback if customer cancels</div>
+
+      <!-- Q5 -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="faq-5" onclick="toggleAccordion(this,'faq-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">05</span>
+            <div>
+              <div class="accordion-title">What is my role and what does GraceX handle?</div>
+              <div class="accordion-preview">Clear boundary between partner responsibilities and GraceX's</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="faq-5">
+          <p style="font-size:13px; font-weight:500; letter-spacing:0.04em; color:var(--slate-dark); margin-bottom:10px; text-transform:uppercase; font-size:10.5px; letter-spacing:0.1em;">Your role</p>
+          <ul class="faq-points" style="margin-bottom:20px;">
+            <li><span class="faq-dot"></span><span>Identify a business owner or leader who may have a psychosocial WHS obligation.</span></li>
+            <li><span class="faq-dot"></span><span>Make a direct introduction by email, phone, or in person.</span></li>
+            <li><span class="faq-dot"></span><span>Register the referral via the online form within 48 hours of the introduction.</span></li>
+          </ul>
+          <p style="font-size:13px; font-weight:500; letter-spacing:0.04em; color:var(--slate-dark); margin-bottom:10px; text-transform:uppercase; font-size:10.5px; letter-spacing:0.1em;">GraceX's role</p>
+          <ul class="faq-points">
+            <li><span class="faq-dot" style="background:var(--steel-light);"></span><span>Conduct all sales conversations and discovery.</span></li>
+            <li><span class="faq-dot" style="background:var(--steel-light);"></span><span>Present pricing and scope to the prospect.</span></li>
+            <li><span class="faq-dot" style="background:var(--steel-light);"></span><span>Deliver the Readiness Assessment and onboarding.</span></li>
+            <li><span class="faq-dot" style="background:var(--steel-light);"></span><span>Operate the platform and provide expert review throughout the subscription.</span></li>
+            <li><span class="faq-dot" style="background:var(--steel-light);"></span><span>Notify you when a payment event is triggered and process payment within 14 business days.</span></li>
+          </ul>
+        </div>
       </div>
+
+      <!-- Q6 -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="faq-6" onclick="toggleAccordion(this,'faq-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">06</span>
+            <div>
+              <div class="accordion-title">How do payments work?</div>
+              <div class="accordion-preview">RCTI for GST-registered partners, standard invoice otherwise</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="faq-6">
+          <p style="font-size:13.5px; color:var(--text-mid); line-height:1.7; margin-bottom:14px;"><strong style="color:var(--slate-dark);">If you are GST-registered (Path A — RCTI).</strong> GraceX raises the invoice on your behalf. When a payment event is triggered and cleared funds are received from the customer, GraceX issues a Recipient-Created Tax Invoice directly to you. You do not need to send an invoice. Payment is made by EFT within 14 business days.</p>
+          <p style="font-size:13.5px; color:var(--text-mid); line-height:1.7; margin-bottom:20px;"><strong style="color:var(--slate-dark);">If you are not GST-registered (Path B — Partner Invoice).</strong> GraceX will notify you when a payment event is triggered. You then send a standard invoice to GraceX for the relevant amount. Payment is made by EFT within 14 business days of receipt of your invoice.</p>
+          <div class="faq-stat-row">
+            <div class="faq-stat">
+              <div class="faq-stat-val">14</div>
+              <div class="faq-stat-label">business days to payment</div>
+            </div>
+            <div class="faq-stat">
+              <div class="faq-stat-val">EFT</div>
+              <div class="faq-stat-label">to your nominated account</div>
+            </div>
+            <div class="faq-stat">
+              <div class="faq-stat-val">$0</div>
+              <div class="faq-stat-label">clawback if customer cancels</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="faq-7" onclick="toggleAccordion(this,'faq-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">07</span>
+            <div>
+              <div class="accordion-title">When does my referral window start, and how long does it last?</div>
+              <div class="accordion-preview">24 months from registration — structured to cover all three events</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="faq-7">
+          <p style="font-size:13.5px; color:var(--text-mid); line-height:1.7; margin-bottom:12px;">Your referral window starts from the timestamp on your registration confirmation. It runs for 24 months. All three compensation events must fall within the 24-month window. In practice the window is most relevant to Event 3, which is why it is set at 24 months rather than 12.</p>
+          <p style="font-size:13.5px; color:var(--text-mid); line-height:1.7;">The window is set at 24 months deliberately. A 12-month licence signed shortly after conversion puts the first renewal at or near the 12-month mark from registration. A shorter window would structurally exclude Event 3. The 24-month window is designed to cover all three events comfortably, including where the sales cycle takes time.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
