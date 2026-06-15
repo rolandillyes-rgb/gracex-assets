@@ -742,6 +742,12 @@
     .faq-stat { border-right: none; border-bottom: 1px solid var(--sky); }
     .faq-stat:last-child { border-bottom: none; }
   }
+
+  /* VIDEO EMBED */
+  .video-block { max-width: 760px; margin: 28px 0 8px; }
+  .video-frame { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius); background: var(--slate-dark); }
+  .video-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+  .video-fallback { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--steel); text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -851,11 +857,65 @@
       </div>
     </div>
 
+    <!-- GRACEX DEMO VIDEO -->
+    <div class="video-block">
+      <div class="label" style="margin-bottom:10px;">Watch: GraceX demo</div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/e3ElYqrkCHY" title="GraceX demo" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <a class="video-fallback" href="https://youtu.be/e3ElYqrkCHY" target="_blank" rel="noopener">Watch on YouTube</a>
+    </div>
+
     <!-- READINESS ASSESSMENT -->
     <div class="label" style="margin-top:40px; margin-bottom:10px;">Readiness Assessment</div>
     <p style="font-size:15px; line-height:1.72; color:var(--text-mid); max-width:680px;">Before GraceX is deployed, every customer completes a Readiness Assessment. This is a structured review across ten domains covering governance, psychosocial risk management, policies, culture, workload, communication, onboarding, leave and flexibility, recognition, and supply chain. A trained assessor works through the domains with the customer across a series of sessions, drawing on documents, data, and structured conversations with key people. The output is a written report covering current state across all ten domains, prioritised recommendations, and an implementation roadmap that sequences the work before and during GraceX rollout. The assessment is a standalone product priced according to the complexity of the organisation and the scope of work required. It is not a bolt-on or an optional step. No customer proceeds to GraceX deployment without one.</p>
+  </div>
+</section>
 
-
+<!-- JOURNEY -->
+<section id="journey" class="bg-ivory">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="label">The Journey</div>
+      <h2>One introduction, three earning points</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-track"></div>
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="step-dot reg">1</div>
+          <div class="step-label">Introduction</div>
+          <div class="step-desc">You connect the prospect with GraceX and register within 48 hours</div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-dot ra">RA</div>
+          <div class="step-label">Readiness Assessment</div>
+          <div class="step-desc">Prospect completes the standalone diagnostic. GraceX delivers.</div>
+          <span class="step-earn">Event 1 - 10%</span>
+        </div>
+        <div class="timeline-step">
+          <div class="step-dot lic">Lic</div>
+          <div class="step-label">Licence Signed</div>
+          <div class="step-desc">Customer signs a Subscription Agreement. Onboarding begins.</div>
+          <span class="step-earn">Event 2 - $1,500-$3,000</span>
+        </div>
+        <div class="timeline-step">
+          <div class="step-dot ren">Ren</div>
+          <div class="step-label">First Renewal</div>
+          <div class="step-desc">Customer renews their subscription at the 12-month mark</div>
+          <span class="step-earn">Event 3 - $1,500-$3,000</span>
+        </div>
+        <div class="timeline-step">
+          <div class="step-dot win">24m</div>
+          <div class="step-label">Referral Window</div>
+          <div class="step-desc">All events must occur within 24 months of your registration date</div>
+        </div>
+      </div>
+    </div>
+    <p class="timeline-note">Your 24-month referral window starts from the registration confirmation timestamp. A 12-month licence plus time to convert means the window is structured to cover all three events comfortably.</p>
+  </div>
+</section>
 
 <!-- COMPENSATION -->
 <section id="compensation" class="bg-ivory">
@@ -1247,51 +1307,6 @@
   </div>
 </section>
 
-<!-- JOURNEY -->
-<section id="journey" class="bg-ivory">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-divider"></div>
-      <div class="label">The Journey</div>
-      <h2>One introduction, three earning points</h2>
-    </div>
-    <div class="timeline">
-      <div class="timeline-track"></div>
-      <div class="timeline-steps">
-        <div class="timeline-step">
-          <div class="step-dot reg">1</div>
-          <div class="step-label">Introduction</div>
-          <div class="step-desc">You connect the prospect with GraceX and register within 48 hours</div>
-        </div>
-        <div class="timeline-step">
-          <div class="step-dot ra">RA</div>
-          <div class="step-label">Readiness Assessment</div>
-          <div class="step-desc">Prospect completes the standalone diagnostic. GraceX delivers.</div>
-          <span class="step-earn">Event 1 - 10%</span>
-        </div>
-        <div class="timeline-step">
-          <div class="step-dot lic">Lic</div>
-          <div class="step-label">Licence Signed</div>
-          <div class="step-desc">Customer signs a Subscription Agreement. Onboarding begins.</div>
-          <span class="step-earn">Event 2 - $1,500-$3,000</span>
-        </div>
-        <div class="timeline-step">
-          <div class="step-dot ren">Ren</div>
-          <div class="step-label">First Renewal</div>
-          <div class="step-desc">Customer renews their subscription at the 12-month mark</div>
-          <span class="step-earn">Event 3 - $1,500-$3,000</span>
-        </div>
-        <div class="timeline-step">
-          <div class="step-dot win">24m</div>
-          <div class="step-label">Referral Window</div>
-          <div class="step-desc">All events must occur within 24 months of your registration date</div>
-        </div>
-      </div>
-    </div>
-    <p class="timeline-note">Your 24-month referral window starts from the registration confirmation timestamp. A 12-month licence plus time to convert means the window is structured to cover all three events comfortably.</p>
-  </div>
-</section>
-
 <!-- WHO WE ARE -->
 <section class="values-section">
   <div class="container">
@@ -1371,6 +1386,16 @@
       </div>
 
     </div>
+
+    <!-- GRACEX CORPORATE VIDEO -->
+    <div class="video-block">
+      <div class="label" style="margin-bottom:10px;">GraceX overview</div>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/qmsmw01fdK0" title="GraceX overview" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <a class="video-fallback" href="https://youtu.be/qmsmw01fdK0" target="_blank" rel="noopener">Watch on YouTube</a>
+    </div>
+
   </div>
 </section>
 
