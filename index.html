@@ -123,8 +123,6 @@
     font-style: italic; color: var(--sand-light);
     margin-bottom: 28px; max-width: 580px; line-height: 1.5;
   }
-  .hero-badge { margin-top: 44px; }
-  .hero-badge svg { height: 58px; width: auto; }
   @media (max-width: 720px) {
     .hero-inner { grid-template-columns: 1fr; }
     .hero-image { height: 240px; }
@@ -693,7 +691,6 @@
   .hero .hero-rule    { animation: fadeUp 0.45s ease 0.18s both; }
   .hero .hero-mission { animation: fadeUp 0.45s ease 0.22s both; }
   .hero p             { animation: fadeUp 0.45s ease 0.28s both; }
-  .hero .hero-badge   { animation: fadeUp 0.45s ease 0.36s both; }
 
   @keyframes slideDown {
     from { opacity: 0; transform: translateY(-6px); }
@@ -775,16 +772,8 @@
       <h1>Introduce us once<br><em>Earn across the relationship</em></h1>
       <div class="hero-rule"></div>
       <p class="hero-mission">We are GraceX. We equip leaders to act on unspoken employee signals.</p>
-      <p>You are here because someone at GraceX thinks you know business owners who carry personal liability for psychosocial risk at work. This page explains how the program works, what you earn, and what you are and are not expected to do.</p>
-      <div class="hero-badge">
-        <svg height="58" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GraceX Referral Partner badge">
-          <rect x="0" y="0" width="400" height="100" rx="6" fill="#4D596A"/>
-          <rect x="0" y="0" width="6" height="100" rx="3" fill="#A29B6E"/>
-          <text x="22" y="44" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#EEEAE5" letter-spacing="3">GRACEX</text>
-          <line x1="22" y1="56" x2="280" y2="56" stroke="#B4C9E6" stroke-width="0.75"/>
-          <text x="22" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#B4C9E6" letter-spacing="2.5">REFERRAL PARTNER</text>
-        </svg>
-      </div>
+      <p>You are here because someone at GraceX thinks you know business owners who carry personal liability for psychosocial risk at work. The test is simple. If you know the owner or managing director of an Australian office-based business with 20 to 200 staff, you already know a candidate. You are not expected to work out whether they have a problem. That is our job, not yours.</p>
+      <p>This page explains how the program works, what you earn, and what you are and are not expected to do.</p>
     </div>
     <div class="hero-image">
       <img src="GRACEX%20STILL-2.jpg" alt="A leader presenting to a team around a boardroom table" loading="eager">
@@ -886,7 +875,7 @@
         <div class="timeline-step">
           <div class="step-dot reg">1</div>
           <div class="step-label">Introduction</div>
-          <div class="step-desc">You connect the prospect with GraceX and register within 48 hours</div>
+          <div class="step-desc">You connect the prospect with GraceX and register within seven days</div>
         </div>
         <div class="timeline-step">
           <div class="step-dot ra">RA</div>
@@ -1240,7 +1229,7 @@
           <ul class="faq-points" style="margin-bottom:20px;">
             <li><span class="faq-dot"></span><span>Identify a business owner or leader who may have a psychosocial WHS obligation.</span></li>
             <li><span class="faq-dot"></span><span>Make a direct introduction by email, phone, or in person.</span></li>
-            <li><span class="faq-dot"></span><span>Register the referral via the online form within 48 hours of the introduction.</span></li>
+            <li><span class="faq-dot"></span><span>Register the referral via the online form within seven days of the introduction.</span></li>
           </ul>
           <p style="font-size:13px; font-weight:500; letter-spacing:0.04em; color:var(--slate-dark); margin-bottom:10px; text-transform:uppercase; font-size:10.5px; letter-spacing:0.1em;">GraceX's role</p>
           <ul class="faq-points">
@@ -1260,14 +1249,15 @@
             <span class="accordion-num">06</span>
             <div>
               <div class="accordion-title">How do payments work?</div>
-              <div class="accordion-preview">RCTI for GST-registered partners, standard invoice otherwise</div>
+              <div class="accordion-preview">RCTI, standard invoice, or waive and donate your fee</div>
             </div>
           </div>
           <div class="accordion-icon"></div>
         </button>
         <div class="accordion-body" id="faq-6">
-          <p style="font-size:13.5px; color:var(--text-mid); line-height:1.7; margin-bottom:14px;"><strong style="color:var(--slate-dark);">If you are GST-registered (Path A — RCTI).</strong> GraceX raises the invoice on your behalf. When a payment event is triggered and cleared funds are received from the customer, GraceX issues a Recipient-Created Tax Invoice directly to you. You do not need to send an invoice. Payment is made by EFT within 14 business days.</p>
-          <p style="font-size:13.5px; color:var(--text-mid); line-height:1.7; margin-bottom:20px;"><strong style="color:var(--slate-dark);">If you are not GST-registered (Path B — Partner Invoice).</strong> GraceX will notify you when a payment event is triggered. You then send a standard invoice to GraceX for the relevant amount. Payment is made by EFT within 14 business days of receipt of your invoice.</p>
+          <p style="font-size:13.5px; color:var(--text-mid); line-height:1.7; margin-bottom:14px;"><strong style="color:var(--slate-dark);">If you are GST-registered (Path A - RCTI).</strong> GraceX raises the invoice on your behalf. When a payment event is triggered and cleared funds are received from the customer, GraceX issues a Recipient-Created Tax Invoice directly to you. You do not need to send an invoice. Payment is made by EFT within 14 business days.</p>
+          <p style="font-size:13.5px; color:var(--text-mid); line-height:1.7; margin-bottom:14px;"><strong style="color:var(--slate-dark);">If you are not GST-registered (Path B - Partner Invoice).</strong> GraceX will notify you when a payment event is triggered. You then send a standard invoice to GraceX for the relevant amount. Payment is made by EFT within 14 business days of receipt of your invoice.</p>
+          <p style="font-size:13.5px; color:var(--text-mid); line-height:1.7; margin-bottom:20px;"><strong style="color:var(--slate-dark);">If you do not wish to take a fee (Path C - Waive or Donate).</strong> When a payment event is triggered you can waive your payment entirely, or have it donated to WayAhead, the Mental Health Association of NSW, or to a charity you nominate. Let us know your preference at registration and we handle the rest.</p>
           <div class="faq-stat-row">
             <div class="faq-stat">
               <div class="faq-stat-val">14</div>
@@ -1292,7 +1282,7 @@
             <span class="accordion-num">07</span>
             <div>
               <div class="accordion-title">When does my referral window start, and how long does it last?</div>
-              <div class="accordion-preview">24 months from registration — structured to cover all three events</div>
+              <div class="accordion-preview">24 months from registration - structured to cover all three events</div>
             </div>
           </div>
           <div class="accordion-icon"></div>
@@ -1405,7 +1395,7 @@
     <div class="register-inner">
       <div class="label">Make a Referral</div>
       <h2>One step. One form.</h2>
-      <p>Make the introduction. Then register the prospect using the form below within 48 hours. GraceX handles everything from there.</p>
+      <p>Making the introduction is the part only you can do. Then take two minutes to register the prospect using the form below, so your earning window is locked to your name. The form is not paperwork for us. It is the record that protects your payment if anyone else introduces the same business. Register within seven days of the introduction.</p>
       <a href="https://forms.office.com/r/q4ksfK3dS2" target="_blank" class="btn-primary">Register a referral</a>
       <div class="register-steps">
         <div class="register-step">
@@ -1414,7 +1404,7 @@
         </div>
         <div class="register-step">
           <div class="rs-num">02</div>
-          <p>Submit the registration form within 48 hours. You will receive automated confirmation with your 24-month window expiry date.</p>
+          <p>Submit the registration form within seven days. You will receive automated confirmation with your 24-month window expiry date.</p>
         </div>
         <div class="register-step">
           <div class="rs-num">03</div>
