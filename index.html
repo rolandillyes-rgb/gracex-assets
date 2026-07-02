@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GraceX Affiliate Program</title>
+<title>GraceX Partner Program</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -62,9 +62,9 @@
     height: 52px; display: flex; align-items: center; justify-content: space-between;
   }
   .nav-logo {
-    font-family: var(--font-display); font-size: 19px; font-weight: 600;
-    color: var(--ivory); letter-spacing: 0.08em; text-decoration: none;
+    display: flex; align-items: center; text-decoration: none;
   }
+  .nav-logo img { height: 22px; display: block; }
   .nav-links { display: flex; gap: 28px; list-style: none; }
   .nav-links a {
     font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
@@ -144,16 +144,17 @@
   .product-intro p + p { margin-top: 14px; }
 
   /* ACCORDION */
-  .accordion { border: 1px solid var(--sky); border-radius: var(--radius); overflow: hidden; margin-bottom: 28px; }
-  .accordion-item { border-bottom: 1px solid var(--sky); }
+  .accordion { border: 1px solid var(--sky); border-top: 1px solid rgba(78,89,106,0.15); border-radius: var(--radius); overflow: hidden; margin-bottom: 28px; }
+  .accordion-item { border-bottom: 1px solid rgba(78,89,106,0.15); }
   .accordion-item:last-child { border-bottom: none; }
   .accordion-trigger {
-    width: 100%; background: var(--white); border: none; cursor: pointer;
-    padding: 18px 22px; display: flex; align-items: center;
+    width: 100%; background: none; border: none; cursor: pointer;
+    padding: 22px 0; display: flex; align-items: center;
     justify-content: space-between; gap: 16px; text-align: left;
     transition: background 0.2s;
   }
   .accordion-trigger:hover { background: var(--ivory-light); }
+  .accordion-trigger:hover .accordion-title { color: var(--steel-light); }
   .accordion-trigger.open { background: var(--slate-dark); }
   .accordion-trigger-left { display: flex; align-items: center; gap: 14px; }
   .accordion-num {
@@ -162,7 +163,9 @@
   }
   .accordion-trigger.open .accordion-num { color: var(--sand-light); }
   .accordion-title {
-    font-size: 14px; font-weight: 500; color: var(--slate-dark);
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.2vw, 26px); font-weight: 600;
+    color: var(--slate-dark); transition: color 0.2s;
   }
   .accordion-trigger.open .accordion-title { color: var(--ivory); }
   .accordion-preview {
@@ -170,13 +173,14 @@
   }
   .accordion-trigger.open .accordion-preview { color: var(--steel); }
   .accordion-icon {
-    width: 20px; height: 20px; flex-shrink: 0;
-    border-radius: 50%; border: 1.5px solid var(--sky);
+    width: 28px; height: 28px; flex-shrink: 0;
+    border-radius: 50%; border: 1px solid rgba(78,89,106,0.25);
     display: flex; align-items: center; justify-content: center;
-    transition: transform 0.25s, background 0.2s;
+    transition: transform 0.3s, background 0.2s;
+    color: var(--slate);
   }
   .accordion-trigger.open .accordion-icon {
-    background: var(--sand); border-color: var(--sand); transform: rotate(45deg);
+    background: var(--slate-dark); border-color: var(--slate-dark); transform: rotate(45deg);
   }
   .accordion-icon::before, .accordion-icon::after {
     content: ''; position: absolute;
@@ -188,7 +192,7 @@
   .accordion-trigger.open .accordion-icon::before,
   .accordion-trigger.open .accordion-icon::after { background: var(--white); }
   .accordion-body {
-    display: none; padding: 24px 22px 24px 60px;
+    display: none; padding: 0 0 28px;
     background: var(--ivory-light); border-top: 1px solid var(--sky);
   }
   .accordion-body.open { display: block; }
@@ -418,6 +422,13 @@
     transition: background 0.2s, transform 0.15s;
   }
   .btn-primary:hover { background: var(--sand-light); transform: translateY(-1px); }
+  .btn-sky { background: var(--sky); color: var(--slate-dark); }
+  .btn-sky:hover { background: var(--steel-light); color: var(--white); transform: translateY(-1px); }
+  .fit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1px; background: var(--ivory); border: 1px solid var(--ivory); border-radius: var(--radius); overflow: hidden; max-width: 820px; margin: 0 auto; }
+  .fit-item { background: var(--white); padding: 22px 24px; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+  .fit-item:hover { background: var(--ivory-light); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(46,64,87,0.10); position: relative; z-index: 1; }
+  .fit-role { font-family: var(--font-body); font-weight: 600; color: var(--slate-dark); font-size: 14.5px; margin-bottom: 6px; }
+  .fit-line { font-size: 13px; line-height: 1.6; color: var(--text-mid); }
   .register-steps {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
     max-width: 640px; margin: 36px auto 0; text-align: left;
@@ -437,8 +448,9 @@
   .tier-stack { display: flex; flex-direction: column; max-width: 580px; margin: 0 auto; }
   .tier-card { border-radius: var(--radius); overflow: hidden; }
   .tier-header { padding: 22px 24px 18px; display: flex; align-items: flex-start; justify-content: space-between; }
+  .tier-card.community .tier-header { background: var(--steel); }
   .tier-card.referral .tier-header { background: var(--slate); }
-  .tier-card.preferred .tier-header { background: var(--sand); }
+  .tier-card.trusted .tier-header { background: var(--sand); }
   .tier-name {
     font-family: var(--font-display); font-size: 23px;
     font-weight: 600; color: var(--ivory); margin-bottom: 2px;
@@ -446,19 +458,21 @@
   .tier-sub {
     font-size: 10.5px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
   }
+  .tier-card.community .tier-sub { color: var(--sky-light); }
   .tier-card.referral .tier-sub { color: var(--sky-light); }
-  .tier-card.preferred .tier-sub { color: rgba(255,255,255,0.7); }
+  .tier-card.trusted .tier-sub { color: rgba(255,255,255,0.7); }
   .tier-step-badge {
     font-size: 9.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
     padding: 3px 10px; border-radius: 2px; white-space: nowrap; margin-top: 2px; flex-shrink: 0;
   }
+  .tier-card.community .tier-step-badge { background: rgba(255,255,255,0.16); color: var(--ivory); }
   .tier-card.referral .tier-step-badge { background: rgba(180,201,230,0.22); color: var(--sky-light); }
-  .tier-card.preferred .tier-step-badge { background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.85); }
+  .tier-card.trusted .tier-step-badge { background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.85); }
   .tier-body {
     background: var(--white); border: 1px solid var(--sky);
     border-top: none; padding: 22px 24px;
   }
-  .tier-card.preferred .tier-body { border-color: var(--sand-light); }
+  .tier-card.trusted .tier-body { border-color: var(--sand-light); }
   .tier-body ul { list-style: none; }
   .tier-body ul li {
     font-size: 13.5px; color: var(--text-mid);
@@ -467,9 +481,13 @@
   }
   .tier-body ul li:last-child { border-bottom: none; }
   .tier-body ul li::before { content: '\2713'; color: var(--steel-light); font-weight: 600; flex-shrink: 0; }
-  .tier-card.preferred .tier-body ul li::before { color: var(--sand); }
+  .tier-card.trusted .tier-body ul li::before { color: var(--sand); }
   .tier-body ul li.inherited { color: var(--text-muted); }
   .tier-body ul li.inherited::before { color: var(--sky); }
+  .tier-flow-note {
+    text-align: center; font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--steel); padding: 3px 0; max-width: 320px;
+  }
 
   /* UNLOCK CONNECTOR */
   .unlock-connector {
@@ -502,49 +520,51 @@
     font-size: clamp(19px, 2.4vw, 24px); font-weight: 400; font-style: italic;
     color: var(--slate-dark); margin-bottom: 40px; line-height: 1.5;
   }
-  .accordion { border-top: 1px solid rgba(78,89,106,0.15); }
-  .accordion-item { border-bottom: 1px solid rgba(78,89,106,0.15); }
-  .accordion-trigger {
+  .values-section .accordion { border: none; border-top: 1px solid rgba(78,89,106,0.15); border-radius: 0; }
+  .values-section .accordion-item { border-bottom: 1px solid rgba(78,89,106,0.15); }
+  .values-section .accordion-trigger {
     width: 100%; background: none; border: none; cursor: pointer;
     display: flex; align-items: center; justify-content: space-between;
     padding: 22px 0; text-align: left; gap: 16px;
   }
-  .accordion-trigger:hover .accordion-title { color: var(--steel-light); }
-  .accordion-title {
+  .values-section .accordion-trigger:hover { background: none; }
+  .values-section .accordion-trigger:hover .accordion-title { color: var(--steel-light); }
+  .values-section .accordion-title {
     font-family: var(--font-display);
     font-size: clamp(20px, 2.2vw, 26px); font-weight: 600;
     color: var(--slate-dark); transition: color 0.2s;
   }
-  .accordion-summary {
+  .values-section .accordion-summary {
     font-size: 14px; color: var(--text-muted); font-weight: 300;
     flex: 1; padding-left: 20px; line-height: 1.5;
   }
-  .accordion-icon {
+  .values-section .accordion-icon {
     width: 28px; height: 28px; flex-shrink: 0;
     border: 1px solid rgba(78,89,106,0.25); border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     transition: transform 0.3s, background 0.2s;
     color: var(--slate);
   }
-  .accordion-item.open .accordion-icon {
+  .values-section .accordion-icon::before, .values-section .accordion-icon::after { content: none; }
+  .values-section .accordion-item.open .accordion-icon {
     transform: rotate(45deg); background: var(--slate-dark); color: var(--ivory);
     border-color: var(--slate-dark);
   }
-  .accordion-body {
-    display: none; padding: 0 0 28px;
+  .values-section .accordion-body {
+    display: none; padding: 0 0 28px; background: none; border-top: none;
   }
-  .accordion-item.open .accordion-body { display: block; }
-  .accordion-points { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-  .accordion-points li {
+  .values-section .accordion-item.open .accordion-body { display: block; }
+  .values-section .accordion-points { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .values-section .accordion-points li {
     display: grid; grid-template-columns: 28px 1fr;
     gap: 12px; align-items: start;
   }
-  .accordion-points li .pt-num {
+  .values-section .accordion-points li .pt-num {
     font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
     color: var(--sand); padding-top: 3px;
   }
-  .accordion-points li .pt-text { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
-  .accordion-points li .pt-text strong {
+  .values-section .accordion-points li .pt-text { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+  .values-section .accordion-points li .pt-text strong {
     display: block; font-size: 13px; font-weight: 500;
     color: var(--slate-dark); margin-bottom: 3px; letter-spacing: 0.02em;
   }
@@ -752,7 +772,7 @@
 <!-- NAV -->
 <nav>
   <div class="inner">
-    <a class="nav-logo" href="#"></a>
+    <a class="nav-logo" href="#"><img src="gracex_wordmark_white.png" alt="GraceX"></a>
     <ul class="nav-links">
       <li><a href="#platform">The Platform</a></li>
       <li><a href="#compensation">What You Earn</a></li>
@@ -768,12 +788,15 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-eyebrow"> Affiliate Program</div>
-      <h1>Introduce us once<br><em>Earn across the relationship</em></h1>
+      <div class="hero-eyebrow">GraceX Partner Program</div>
+      <h1>Help make safe workplaces the standard<br><em>Earn across the relationship</em></h1>
       <div class="hero-rule"></div>
       <p class="hero-mission">We are GraceX. We turn employee voice into leadership action.</p>
-      <p>You are here because someone at GraceX thinks you know business owners who carry personal liability for psychosocial risk at work. The test is simple. If you know the owner or managing director of an Australian office-based business with 20 to 200 staff, you already know a candidate. You are not expected to work out whether they have a problem. That is our job, not yours.</p>
-      <p>This page explains how the program works, what you earn, and what you are and are not expected to do.</p>
+            <p>Nearly 68,000 Australian businesses run on teams of 20 to 200 people, and their leaders now carry personal liability for psychosocial safety at work. We cannot reach them all on our own. We build a community, not just a referral scheme. It is a group of people who help these leaders meet their duty to protect their teams, and whose contribution is valued for the full life of each customer contract, not only at the introduction.</p>
+      <p>As an expert in your field, you already share the objective this community is built on: workplaces that are safe and well led as the standard, not the exception. That makes you exactly who we want here. The test is simple. If you know the owner or managing director of an Australian office-based business, you already know a candidate.</p>
+      <div style="margin-top:32px; animation: fadeUp 0.45s ease 0.34s both;">
+        <a href="https://forms.office.com/r/h4vhpeC1Gn" target="_blank" rel="noopener" class="btn-primary">Join the community</a>
+      </div>
     </div>
     <div class="hero-image">
       <img src="GRACEX%20STILL-2.jpg" alt="A leader presenting to a team around a boardroom table" loading="eager">
@@ -781,8 +804,46 @@
   </div>
 </section>
 
+<!-- WHERE YOU FIT -->
+<section id="fit" class="bg-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-divider"></div>
+      <div class="label">Where you fit</div>
+      <h2>You already sit close to the buyer</h2>
+    </div>
+    <p style="max-width:820px; margin:0 auto 36px; text-align:left; font-size:15px; line-height:1.72; color:var(--text-mid);">The strongest introductions come from people who already advise, serve, or sit beside the owner of an Australian office-based business. If that is you, you already know a candidate.</p>
+    <div class="fit-grid">
+      <div class="fit-item">
+        <div class="fit-role">Fractional CxO</div>
+        <div class="fit-line">You sit inside the leadership of several businesses at once, close enough to see where the duty is not being met.</div>
+      </div>
+      <div class="fit-item">
+        <div class="fit-role">Coach</div>
+        <div class="fit-line">You work with the owners and managing directors who carry the liability personally.</div>
+      </div>
+      <div class="fit-item">
+        <div class="fit-role">Workplace lawyer</div>
+        <div class="fit-line">You advise on the obligation itself, and you know which clients have exposure and nothing to show for it.</div>
+      </div>
+      <div class="fit-item">
+        <div class="fit-role">WHS consultant</div>
+        <div class="fit-line">You understand the psychosocial duty, and you meet the businesses with no dedicated safety function.</div>
+      </div>
+      <div class="fit-item">
+        <div class="fit-role">HR partner</div>
+        <div class="fit-line">You are often the first to see the signals, and the first asked what is being done about them.</div>
+      </div>
+      <div class="fit-item">
+        <div class="fit-role">Managed service provider</div>
+        <div class="fit-line">You run the Microsoft 365 environment GraceX lives in, and you already hold the trust of the owner.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- THE PLATFORM -->
-<section id="platform" class="bg-ivory">
+<section id="platform" class="bg-ivory" style="padding-bottom:40px;">
   <div class="container">
     <div class="section-header">
       <div class="section-divider"></div>
@@ -791,8 +852,9 @@
     </div>
 
     <div class="product-intro">
-      <p>GraceX is a psychosocial risk management platform built entirely inside Microsoft 365. It gives business leaders a structured, documented approach to their WHS obligations under Australian psychosocial hazard legislation and the 2024 Code of Practice, without adding new software, new logins, or new systems.</p>
+      <p>GraceX is a psychosocial risk management platform built entirely inside Microsoft 365. It gives business leaders a structured, documented approach to their WHS obligations under Australian psychosocial hazard legislation and the applicable Code of Practice, without adding new software, new logins, or new systems.</p>
       <p>It operates through Teams, SharePoint, and Forms that businesses already pay for. A human expert reviews anonymous survey results each month and provides a written report with specific leadership actions. Leaders see trends over time in Power BI. All data stays inside the customer's own Microsoft 365 tenant at all times.</p>
+      <p>In New South Wales the ground has already shifted. From 1 July 2026, under section 26A of the WHS Act, the Managing Psychosocial Hazards at Work Code of Practice is an enforceable benchmark, which means SafeWork NSW does not need to prove an incident or an injury to establish a breach. A documented, ongoing approach is now the only reliable position.</p>
     </div>
 
     <!-- PILLARS ACCORDION -->
@@ -852,17 +914,16 @@
       <div class="video-frame">
         <iframe src="https://www.youtube-nocookie.com/embed/e3ElYqrkCHY" title="GraceX demo" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
       </div>
-      <a class="video-fallback" href="https://youtu.be/e3ElYqrkCHY" target="_blank" rel="noopener">Watch on YouTube</a>
     </div>
 
     <!-- READINESS ASSESSMENT -->
     <div class="label" style="margin-top:40px; margin-bottom:10px;">Readiness Assessment</div>
-    <p style="font-size:15px; line-height:1.72; color:var(--text-mid); max-width:680px;">Before GraceX is deployed, every customer completes a Readiness Assessment. This is a structured review across ten domains covering governance, psychosocial risk management, policies, culture, workload, communication, onboarding, leave and flexibility, recognition, and supply chain. A trained assessor works through the domains with the customer across a series of sessions, drawing on documents, data, and structured conversations with key people. The output is a written report covering current state across all ten domains, prioritised recommendations, and an implementation roadmap that sequences the work before and during GraceX rollout. The assessment is a standalone product priced according to the complexity of the organisation and the scope of work required. It is not a bolt-on or an optional step. No customer proceeds to GraceX deployment without one.</p>
+    <p style="font-size:15px; line-height:1.72; color:var(--text-mid); max-width:680px;">No two businesses are the same, and improvement does not last if the foundations are not in place. That is why the Readiness Assessment comes first. It gives an honest picture of where the business stands today, and lifts the policies, procedures, and leadership rituals that the rest of the work depends on. It draws the baseline, so everything that follows can be measured against something real. It is also a paid product in its own right. We built it as the first step in the program, and in developing it we found it delivers value to the business straight away, before GraceX begins, not only as the groundwork a smooth rollout depends on.</p>
   </div>
 </section>
 
 <!-- JOURNEY -->
-<section id="journey" class="bg-ivory">
+<section id="journey" class="bg-ivory" style="padding-top:36px;">
   <div class="container">
     <div class="section-header">
       <div class="section-divider"></div>
@@ -1058,22 +1119,22 @@
       <div class="calc-grid">
         <div class="calc-field">
           <label>Introductions per year</label>
-          <input type="range" id="intros" min="1" max="20" value="4" oninput="calcUpdate()">
-          <div class="range-display"><span id="intros-val">4</span> <span>introductions / yr</span></div>
+          <input type="range" id="intros" min="1" max="20" value="1" oninput="calcUpdate()">
+          <div class="range-display"><span id="intros-val">1</span> <span>introductions / yr</span></div>
         </div>
         <div class="calc-field">
           <label>Estimated conversion rate</label>
           <select id="conv-rate" onchange="calcUpdate()">
             <option value="0.2">Conservative - 1 in 5</option>
-            <option value="0.33" selected>Moderate - 1 in 3</option>
+            <option value="0.33">Moderate - 1 in 3</option>
             <option value="0.5">Strong - 1 in 2</option>
-            <option value="1">Maximum - 1 in 1</option>
+            <option value="1" selected>Maximum - 1 in 1</option>
           </select>
         </div>
         <div class="calc-field">
           <label>Typical business size</label>
           <select id="biz-size" onchange="calcUpdate()">
-            <option value="small" selected>Small (40-60 staff)</option>
+            <option value="small" selected>Small (20-60 staff)</option>
             <option value="mid">Mid (61-100 staff)</option>
             <option value="large">Large (101-200 staff)</option>
           </select>
@@ -1082,25 +1143,25 @@
           <label>Renewal assumption</label>
           <select id="renewal" onchange="calcUpdate()">
             <option value="0">No renewals assumed</option>
-            <option value="0.7" selected>Most renew (70%)</option>
-            <option value="1">All renew</option>
+            <option value="0.7">Most renew (70%)</option>
+            <option value="1" selected>All renew</option>
           </select>
         </div>
       </div>
       <div class="calc-result">
         <div class="calc-result-item">
           <div class="res-label">Conversions / yr</div>
-          <div class="res-val" id="res-conversions">1-2</div>
+          <div class="res-val" id="res-conversions">1</div>
           <div class="res-sub">paying customers</div>
         </div>
         <div class="calc-result-item">
           <div class="res-label">Est. earnings - Year 1</div>
-          <div class="res-val" id="res-yr1">$4.3k</div>
+          <div class="res-val" id="res-yr1">$2.1k</div>
           <div class="res-sub">ex GST</div>
         </div>
         <div class="calc-result-item">
           <div class="res-label">Est. earnings - Year 2</div>
-          <div class="res-val" id="res-yr2">$2.1k</div>
+          <div class="res-val" id="res-yr2">$1.5k</div>
           <div class="res-sub">renewals from Year 1 clients</div>
         </div>
       </div>
@@ -1121,25 +1182,60 @@
     </div>
     <div class="accordion" id="faq-acc">
 
+      <!-- Q0 - becoming a partner -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="faq-become" onclick="toggleAccordion(this,'faq-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">01</span>
+            <div>
+              <div class="accordion-title">How do I become a GraceX partner?</div>
+              <div class="accordion-preview">How you join, and what happens next</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="faq-become">
+          <p style="font-size:13.5px; color:var(--text-mid); line-height:1.72;">You register and become part of the community. The Partner Roundtable and Partner Brief keep you current. When you know a business that fits, you make the introduction and we take it from there. Payment follows automatically at each earning event. See "How do payments work?" for the detail.</p>
+        </div>
+      </div>
+
+      <!-- Q-client -->
+      <div class="accordion-item">
+        <button class="accordion-trigger" data-target="faq-client" onclick="toggleAccordion(this,'faq-acc')">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">02</span>
+            <div>
+              <div class="accordion-title">Does the business need to be my client?</div>
+              <div class="accordion-preview">Who you can introduce, and who you cannot</div>
+            </div>
+          </div>
+          <div class="accordion-icon"></div>
+        </button>
+        <div class="accordion-body" id="faq-client">
+          <p style="font-size:13.5px; color:var(--text-mid); line-height:1.72;">No. The introduction can be to anyone you know well enough to make it: a peer, a former employer, a company you advise, or a business in your network. You are not referring a client. You are pointing a leader who carries the duty toward a way to meet it. The only test is whether you can make a warm, direct introduction to the owner or managing director.</p>
+        </div>
+      </div>
+
       <!-- Q1 -->
       <div class="accordion-item">
         <button class="accordion-trigger" data-target="faq-1" onclick="toggleAccordion(this,'faq-acc')">
           <div class="accordion-trigger-left">
-            <span class="accordion-num">01</span>
+            <span class="accordion-num">03</span>
             <div>
               <div class="accordion-title">How do I identify a suitable prospect to refer?</div>
-              <div class="accordion-preview">Six signals that indicate a strong fit</div>
+              <div class="accordion-preview">Seven signals that indicate a strong fit</div>
             </div>
           </div>
           <div class="accordion-icon"></div>
         </button>
         <div class="accordion-body" id="faq-1">
           <ul class="faq-points" style="margin-bottom:16px;">
+            <li><span class="faq-dot"></span><span><strong>NSW business with nothing on record.</strong> From 1 July 2026 the Code of Practice is an enforceable benchmark under section 26A. SafeWork NSW does not need an incident or an injury to establish a breach, so a leader with no documented approach has a direct reason to act now.</span></li>
             <li><span class="faq-dot"></span><span><strong>High staff turnover.</strong> Employee turnover above 5% in the last 12 months, or a business that appears to be in a permanent recruitment cycle. A fast-growth or scale-up phase produces the same conditions and is equally strong as an entry point.</span></li>
             <li><span class="faq-dot"></span><span><strong>Known absenteeism problem.</strong> If the business recognises that unplanned leave is an issue, particularly where it is running above seven days per employee per year on average, that points to an underlying problem GraceX is designed to surface.</span></li>
             <li><span class="faq-dot"></span><span><strong>Approaching an M&amp;A.</strong> Pre-transaction, GraceX can support the psychosocial risk component of due diligence. This is a credible and specific entry point with boards and acquirers.</span></li>
             <li><span class="faq-dot"></span><span><strong>Post-M&amp;A integration.</strong> After a transaction closes, staff navigate uncertainty, leadership change, and cultural adjustment. The psychosocial risk profile of the combined business is elevated. Leaders often do not have visibility of it.</span></li>
-            <li><span class="faq-dot"></span><span><strong>Board requesting psychosocial risk reporting.</strong> If the board has asked for this, the CEO needs a documented, defensible response. GraceX provides exactly that.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Board requesting psychosocial risk reporting.</strong> If the board has asked for this, the CEO needs a documented response that stands up to scrutiny. GraceX provides exactly that.</span></li>
             <li><span class="faq-dot"></span><span><strong>Workers compensation renewal within three months.</strong> Insurers are increasingly pricing psychosocial risk. A business approaching renewal has a direct financial reason to act.</span></li>
           </ul>
           <p style="font-size:13.5px; color:var(--slate-dark); line-height:1.7; border-left:3px solid var(--sand); padding-left:14px; font-style:italic;">The common thread is a CEO or MD who either knows they have a problem or is about to be asked to demonstrate they have one under control.</p>
@@ -1150,7 +1246,7 @@
       <div class="accordion-item">
         <button class="accordion-trigger" data-target="faq-2" onclick="toggleAccordion(this,'faq-acc')">
           <div class="accordion-trigger-left">
-            <span class="accordion-num">02</span>
+            <span class="accordion-num">04</span>
             <div>
               <div class="accordion-title">What makes GraceX different from other workplace tools?</div>
               <div class="accordion-preview">Three distinctions that matter in a sales conversation</div>
@@ -1162,8 +1258,8 @@
           <ul class="faq-points">
             <li><span class="faq-dot"></span><span><strong>No new software.</strong> GraceX runs entirely inside Microsoft 365 tools the business already uses. Nothing to install, no new software to licence, no IT project to manage.</span></li>
             <li><span class="faq-dot"></span><span><strong>Data never leaves the customer's tenant.</strong> All data stays inside the customer's own Microsoft 365 environment at all times. GraceX holds nothing. Only de-identified survey summaries reach the expert for review.</span></li>
-            <li><span class="faq-dot"></span><span><strong>Human expert, not an algorithm.</strong> Survey results are reviewed by a human organisational psychologist. The monthly report and the leadership actions that come with it are the product of professional judgement, not automated scoring or pattern detection.</span></li>
-            <li><span class="faq-dot"></span><span><strong>Structured to the 2024 WHS Code of Practice.</strong> GraceX is designed specifically around the Australian Code of Practice for Managing Psychosocial Hazards at Work. Customers build a defensible, documented compliance posture, not just a survey habit.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Human expert, not an algorithm.</strong> Survey results are reviewed by a qualified expert, an organisational psychologist or WHS professional. The monthly report and the leadership actions that come with it are the product of professional judgement, not automated scoring or pattern detection.</span></li>
+            <li><span class="faq-dot"></span><span><strong>Structured to the Code of Practice.</strong> GraceX is designed specifically around the Managing Psychosocial Hazards at Work Code of Practice as it applies in each Australian jurisdiction. Customers build a documented compliance posture, not just a survey habit.</span></li>
             <li><span class="faq-dot"></span><span><strong>Continuous, not one-off.</strong> GraceX operates fortnightly. The result is an ongoing evidence trail of consultation, action, and review that a business can demonstrate to a regulator.</span></li>
             <li><span class="faq-dot"></span><span><strong>Built for the business owner.</strong> Designed for a CEO or MD carrying personal WHS liability, not an HR specialist. Plain language, specific actions, Power BI visibility. No specialist knowledge required to operate it.</span></li>
           </ul>
@@ -1174,7 +1270,7 @@
       <div class="accordion-item">
         <button class="accordion-trigger" data-target="faq-3" onclick="toggleAccordion(this,'faq-acc')">
           <div class="accordion-trigger-left">
-            <span class="accordion-num">03</span>
+            <span class="accordion-num">05</span>
             <div>
               <div class="accordion-title">What is GraceX not?</div>
               <div class="accordion-preview">Important distinctions to have clear before any conversation</div>
@@ -1198,7 +1294,7 @@
       <div class="accordion-item">
         <button class="accordion-trigger" data-target="faq-4" onclick="toggleAccordion(this,'faq-acc')">
           <div class="accordion-trigger-left">
-            <span class="accordion-num">04</span>
+            <span class="accordion-num">06</span>
             <div>
               <div class="accordion-title">What should I say when I introduce GraceX?</div>
               <div class="accordion-preview">Suggested language, verbatim or adapted</div>
@@ -1216,7 +1312,7 @@
       <div class="accordion-item">
         <button class="accordion-trigger" data-target="faq-5" onclick="toggleAccordion(this,'faq-acc')">
           <div class="accordion-trigger-left">
-            <span class="accordion-num">05</span>
+            <span class="accordion-num">07</span>
             <div>
               <div class="accordion-title">What is my role and what does GraceX handle?</div>
               <div class="accordion-preview">Clear boundary between partner responsibilities and GraceX's</div>
@@ -1246,7 +1342,7 @@
       <div class="accordion-item">
         <button class="accordion-trigger" data-target="faq-6" onclick="toggleAccordion(this,'faq-acc')">
           <div class="accordion-trigger-left">
-            <span class="accordion-num">06</span>
+            <span class="accordion-num">08</span>
             <div>
               <div class="accordion-title">How do payments work?</div>
               <div class="accordion-preview">RCTI, standard invoice, or waive and donate your fee</div>
@@ -1279,7 +1375,7 @@
       <div class="accordion-item">
         <button class="accordion-trigger" data-target="faq-7" onclick="toggleAccordion(this,'faq-acc')">
           <div class="accordion-trigger-left">
-            <span class="accordion-num">07</span>
+            <span class="accordion-num">09</span>
             <div>
               <div class="accordion-title">When does my referral window start, and how long does it last?</div>
               <div class="accordion-preview">24 months from registration - structured to cover all three events</div>
@@ -1305,7 +1401,10 @@
       <div class="label">Who We Are</div>
       <h2>How we work</h2>
     </div>
-    <p class="values-mission">We are GraceX. We turn employee voice into leadership action.</p>
+    <p class="values-mission" style="margin-bottom:24px;">We are GraceX. We turn employee voice into leadership action.</p>
+    <div style="margin-bottom:44px;">
+      <a href="GRACEX_Values.html" target="_blank" rel="noopener" class="btn-primary">Read our values in full</a>
+    </div>
     <div class="accordion">
 
       <div class="accordion-item">
@@ -1323,7 +1422,7 @@
           <ul class="accordion-points">
             <li><span class="pt-num">1.1</span><span class="pt-text"><strong>We are imperfect and acknowledge it</strong>While striving for excellence, we understand that perfection is a journey, not a destination. Acknowledging our imperfections means we accept them conditionally, on the premise that we are always working toward the best possible outcome.</span></li>
             <li><span class="pt-num">1.2</span><span class="pt-text"><strong>Data drives our decisions</strong>Data, in context, informs every decision. As W. E. Deming said, without data you are just another person with an opinion. Information alone is not knowledge. Knowing how to use it is.</span></li>
-            <li><span class="pt-num">1.3</span><span class="pt-text"><strong>We do what we say, we say what we do</strong>We value clarity and integrity. There are only three responses to a clear question: Yes, No, or I don't know. Decisions should always be transparent and, if incorrect, reassessed based on data.</span></li>
+            <li><span class="pt-num">1.3</span><span class="pt-text"><strong>We do what we say, we say what we do</strong>We value clarity and integrity. There are only three responses to a clear question: Yes, No, or I do not know. Decisions should always be transparent and, if incorrect, reassessed based on data.</span></li>
             <li><span class="pt-num">1.4</span><span class="pt-text"><strong>We are all responsible for our success</strong>Success is a shared effort. We take collective ownership.</span></li>
             <li><span class="pt-num">1.5</span><span class="pt-text"><strong>We aim to win, but not at any cost</strong>Ethical business is non-negotiable. Success is not worth compromising our values.</span></li>
           </ul>
@@ -1383,7 +1482,6 @@
       <div class="video-frame">
         <iframe src="https://www.youtube-nocookie.com/embed/qmsmw01fdK0" title="GraceX overview" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
       </div>
-      <a class="video-fallback" href="https://youtu.be/qmsmw01fdK0" target="_blank" rel="noopener">Watch on YouTube</a>
     </div>
 
   </div>
@@ -1394,9 +1492,9 @@
   <div class="container">
     <div class="register-inner">
       <div class="label">Make a Referral</div>
-      <h2>One step. One form.</h2>
+      <h2>When you have someone in mind</h2>
       <p>Making the introduction is the part only you can do. Then take two minutes to register the prospect using the form below, so your earning window is locked to your name. The form is not paperwork for us. It is the record that protects your payment if anyone else introduces the same business. Register within seven days of the introduction.</p>
-      <a href="https://forms.office.com/r/q4ksfK3dS2" target="_blank" class="btn-primary">Register a referral</a>
+      <a href="https://forms.office.com/r/q4ksfK3dS2" target="_blank" class="btn-primary btn-sky">Register a referral</a>
       <div class="register-steps">
         <div class="register-step">
           <div class="rs-num">01</div>
@@ -1404,14 +1502,13 @@
         </div>
         <div class="register-step">
           <div class="rs-num">02</div>
-          <p>Submit the registration form within seven days. You will receive automated confirmation with your 24-month window expiry date.</p>
+          <p>Submit the registration form within seven days. You will receive automated confirmation that we have your referral on record, with your 24-month window expiry date.</p>
         </div>
         <div class="register-step">
           <div class="rs-num">03</div>
-          <p>GraceX takes it from here. You will be notified when a payment event is triggered.</p>
+          <p>GraceX takes it from here. You will hear from us when your prospect reaches their first discovery call or receives a proposal, and again at every earning event. You are never left wondering where your referral stands.</p>
         </div>
       </div>
-      <p class="window-note">Attribution is based on first registration timestamp. If two affiliates register the same prospect, the earlier submission takes precedence.</p>
     </div>
   </div>
 </section>
@@ -1422,24 +1519,49 @@
     <div class="section-header">
       <div class="section-divider"></div>
       <div class="label">Partner Tiers</div>
-      <h2>Two Tiers. One Path.</h2>
+      <h2>A community that makes a difference.</h2>
     </div>
+    <p style="max-width:680px;margin:0 0 30px;text-align:left;font-size:15px;line-height:1.7;color:var(--text-mid);">This is a partnership, not a one-off referral scheme. The people here advise businesses for a living, and they want to see psychosocial duty handled properly rather than left to chance. Every leader you introduce is a workplace better protected, and staying in the community keeps you close to what is working across the field.</p>
     <div class="tier-stack">
-      <div class="tier-card referral">
+
+      <div class="tier-card community">
         <div class="tier-header">
           <div>
-            <div class="tier-name">Referral Partner</div>
-            <div class="tier-sub">Default tier - from day one</div>
+            <div class="tier-name">Community Partner</div>
+            <div class="tier-sub">Where you start - from day one</div>
           </div>
           <span class="tier-step-badge">Step 1</span>
         </div>
         <div class="tier-body">
           <ul>
+            <li>Partner Roundtable, live with the GraceX community</li>
+            <li>Partner Brief, the latest regulation changes and client stories</li>
+            <li>Access to approved introduction language and reference materials</li>
+            <li>A direct point of contact at GraceX</li>
+          </ul>
+          <a href="https://forms.office.com/r/h4vhpeC1Gn" target="_blank" rel="noopener" class="btn-primary" style="margin-top:20px; display:inline-block;">Join the community</a>
+        </div>
+      </div>
+
+      <div class="unlock-connector">
+        <div class="unlock-line"></div>
+        <div class="tier-flow-note">Register a prospect to become a Referral Partner</div>
+        <div class="unlock-line"></div>
+      </div>
+
+      <div class="tier-card referral">
+        <div class="tier-header">
+          <div>
+            <div class="tier-name">Referral Partner</div>
+            <div class="tier-sub">The moment you register a prospect</div>
+          </div>
+          <span class="tier-step-badge">Step 2</span>
+        </div>
+        <div class="tier-body">
+          <ul>
+            <li class="inherited">Everything in Community Partner</li>
             <li>Full access to all three compensation events</li>
             <li>GraceX Referral Partner designation for use in professional profiles</li>
-            <li>Access to approved introduction language and reference materials</li>
-            <li>Quarterly partner briefing on GraceX program updates</li>
-            <li>Direct point of contact at GraceX</li>
           </ul>
         </div>
       </div>
@@ -1454,32 +1576,33 @@
             </svg>
           </div>
           <div>
-            <div class="unlock-text-heading">Unlocks after 2 qualifying conversions</div>
-            <div class="unlock-text-sub">Preferred Partner status activates automatically once both are complete</div>
+            <div class="unlock-text-heading">Activates after two qualifying conversions</div>
+            <div class="unlock-text-sub">Trusted Partner activates automatically once both are complete</div>
           </div>
         </div>
         <div class="unlock-line"></div>
       </div>
 
-      <div class="tier-card preferred">
+      <div class="tier-card trusted">
         <div class="tier-header">
           <div>
-            <div class="tier-name">Preferred Partner</div>
-            <div class="tier-sub">Builds on everything in Referral</div>
+            <div class="tier-name">Trusted Partner</div>
+            <div class="tier-sub">After two qualifying conversions</div>
           </div>
-          <span class="tier-step-badge">Step 2</span>
+          <span class="tier-step-badge">Step 3</span>
         </div>
         <div class="tier-body">
           <ul>
             <li class="inherited">Everything in Referral Partner</li>
-            <li>Preferred Partner designation for use in professional profiles</li>
-            <li>Your business listed as a GraceX Preferred Partner on gracex.io</li>
+            <li>Trusted Partner designation for use in professional profiles</li>
+            <li>Your business listed as a GraceX Trusted Partner on gracex.io</li>
             <li>First access to new program materials and resources</li>
             <li>Recognition in GraceX partner communications</li>
             <li>Priority support from the GraceX team</li>
           </ul>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1559,6 +1682,19 @@
         </a>
       </div>
 
+      <!-- Community Registration Form -->
+      <div class="resource-card resource-card-cta">
+        <div class="resource-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="resource-label">Join</div>
+        <div class="resource-title">Community Registration Form</div>
+        <a href="https://forms.office.com/r/h4vhpeC1Gn" target="_blank" class="resource-dl resource-dl-cta">
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Open Form
+        </a>
+      </div>
+
       <!-- Referral Registration Form -->
       <div class="resource-card resource-card-cta">
         <div class="resource-icon">
@@ -1576,6 +1712,20 @@
   </div>
 </section>
 
+<!-- CLOSING CTA -->
+<section class="bg-slate" style="padding:var(--section-pad); text-align:center;">
+  <div class="container">
+    <div class="section-divider" style="margin:0 auto 10px;"></div>
+    <div class="label" style="color:var(--sky);">Two ways in</div>
+    <h2 style="color:var(--white); max-width:640px; margin:8px auto 0;">Join the community, or introduce someone today</h2>
+    <p style="max-width:600px; margin:20px auto 34px; font-size:15px; line-height:1.72; color:var(--sky-light);">Join the community when you want to learn the ground first. Register a referral when you already know the owner or managing director who needs this. There is no wrong door.</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://forms.office.com/r/h4vhpeC1Gn" target="_blank" rel="noopener" class="btn-primary">Join the community</a>
+      <a href="https://forms.office.com/r/q4ksfK3dS2" target="_blank" rel="noopener" class="btn-primary btn-sky">Register a referral</a>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
@@ -1583,7 +1733,7 @@
       <div>
         <div class="foot-logo">GraceX</div>
         <div class="foot-abn">GraceX Pty Ltd · ABN 53 679 155 072</div>
-        <p class="privacy-note">GraceX collects partner and prospect personal information solely to administer the affiliate program and process payments. See our <a href="https://affiliate.gracex.io/gracex-partner-privacy-notice.pdf" target="_blank">Partner Privacy Notice</a> and <a href="https://gracex.io/privacy-policy/" target="_blank">Privacy Policy</a> for full details.</p>
+        <p class="privacy-note">GraceX collects partner and prospect personal information solely to administer the GraceX Partner Program and process payments. See our <a href="https://affiliate.gracex.io/gracex-partner-privacy-notice.pdf" target="_blank">Partner Privacy Notice</a> for full details.</p>
       </div>
       <div>
         <h4>Contact</h4>
@@ -1607,12 +1757,13 @@ function toggleAccordion(trigger, groupId) {
 
   // Close all in group
   group.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
-  group.querySelectorAll('.accordion-trigger').forEach(t => t.classList.remove('open'));
+  group.querySelectorAll('.accordion-trigger').forEach(t => { t.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); });
 
   // Open clicked if it was closed
   if (!isOpen) {
     targetBody.classList.add('open');
     trigger.classList.add('open');
+    trigger.setAttribute('aria-expanded', 'true');
   }
 }
 
@@ -1653,11 +1804,11 @@ calcUpdate();
 </script>
 
 <script>
-  document.querySelectorAll('.accordion-trigger').forEach(function(trigger) {
+  document.querySelectorAll('.values-section .accordion-trigger').forEach(function(trigger) {
     trigger.addEventListener('click', function() {
       var item = this.closest('.accordion-item');
       var isOpen = item.classList.contains('open');
-      document.querySelectorAll('.accordion-item.open').forEach(function(openItem) {
+      document.querySelectorAll('.values-section .accordion-item.open').forEach(function(openItem) {
         openItem.classList.remove('open');
         openItem.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
       });
